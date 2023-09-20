@@ -5,71 +5,78 @@ interface Props {
     subtitle?: string
 }
 
-const { title, subtitle='Ask why later'} = Astro.props
+const { title, subtitle='Ask why later...'} = Astro.props
 ---
 
 <header>
     <div class="container">
         <div class="brand-container">
             <div class="logo-container">
-                <img src={logo.src} alt="code and y">
+                <a href="#">
+                    <img src={logo.src} alt="code and y" />
+                </a>
             </div>
             <div class="title-container">
                 <h1>{title}</h1>
                 <p>{subtitle}</p>
             </div>
         </div>
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="/">About</a></li>
-                <li><a href="/">Blog</a></li>
-            </ul>
-        </nav>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/blog">Blog</a></li>
+                </ul>
+            </nav>
     </div>
 </header>
 
 <style>
     
     header {
-        background-color: #9ca9b2;
+        background-color: #5a6773;
         width: 100%;
-        padding-bottom: 10px;
+        height: 100%;
+        padding-bottom: 8px;
 
     }
     .container {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        text-align: center;
-        align-items: center;
+        align-items: flex-end;
+        margin: auto;
+        width: 80%;
+
     }
     .brand-container {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        gap: 20px;
-        align-items: center
+        width: auto;
+        gap: 24px;
+        align-items: center;
     }
     .title-container {
         display: flex;
+        padding: 32px;
         flex-direction: column;
-        text-align: left
-        
+        text-align: left;
+        color: whitesmoke
+
     }
     .logo-container {
     width: 100px;
     height: auto;
-    padding: 24px
+    padding-top: 16px;
+    align-items: center
     }
     
-    nav {
-        align-items: bottom;
-    }
 
     ul{
         display: flex;
         flex-direction: row;
+
     }
     
     li {
@@ -77,10 +84,55 @@ const { title, subtitle='Ask why later'} = Astro.props
         text-align: center;
         align-items: bottom;
         padding-right: 32px;
+        
     }
     a, a:visited{
         text-decoration: none;
-        color: white;
+        text-transform: uppercase;
+        font-size: x-large;
+        color: whitesmoke;
     }
+
+    a:hover {
+        opacity: .65;
+    }
+
+    @media (max-width: 768px) {
+        nav {
+            display: none;
+        }
+        .container {
+        transform: translateX(25%);
+        width: auto;
+        align-items: center;
+        padding: none;
+        }
+    }
+    @media (max-width: 540px) {
+        
+        .container {
+        transform: translateX(25%);
+        width: auto;
+
+        }
+        .brand-container {
+            display: flex;
+            flex-direction: column-reverse;
+            width: auto;
+            align-items: center;
+        }
+        .title-container {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            margin-bottom: -40px
+        }
+        .logo-container {
+        width: 100px;
+        height: 100;
+        align-items: flex-end
+        }
+    }
+
 
 </style>

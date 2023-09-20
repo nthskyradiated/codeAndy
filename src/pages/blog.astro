@@ -1,0 +1,31 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+import underConstruction from '../images/underConstruction.jpg'
+---
+
+<Layout title="Code && Y">
+	<main>
+		<div class="under-construction">
+			<img src={underConstruction.src} alt="underConstruction" />
+		</div>
+	</main>
+</Layout>
+
+<style>
+
+under-construction {
+	padding: auto;
+	align-items: center;
+}
+img {
+	margin: auto;
+	padding-top: 2rem;
+	display: block;
+  	max-width: 1024px;
+  	max-height:768px;
+  	width: auto;
+  	height: auto;
+}
+
+</style>
