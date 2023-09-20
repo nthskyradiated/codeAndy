@@ -1,0 +1,86 @@
+---
+import logo from "../images/logo.svg"
+interface Props {
+    title: string
+    subtitle?: string
+}
+
+const { title, subtitle='Ask why later'} = Astro.props
+---
+
+<header>
+    <div class="container">
+        <div class="brand-container">
+            <div class="logo-container">
+                <img src={logo.src} alt="code and y">
+            </div>
+            <div class="title-container">
+                <h1>{title}</h1>
+                <p>{subtitle}</p>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="/">About</a></li>
+                <li><a href="/">Blog</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<style>
+    
+    header {
+        background-color: #9ca9b2;
+        width: 100%;
+        padding-bottom: 10px;
+
+    }
+    .container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: center;
+        align-items: center;
+    }
+    .brand-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 20px;
+        align-items: center
+    }
+    .title-container {
+        display: flex;
+        flex-direction: column;
+        text-align: left
+        
+    }
+    .logo-container {
+    width: 100px;
+    height: auto;
+    padding: 24px
+    }
+    
+    nav {
+        align-items: bottom;
+    }
+
+    ul{
+        display: flex;
+        flex-direction: row;
+    }
+    
+    li {
+        list-style: none;
+        text-align: center;
+        align-items: bottom;
+        padding-right: 32px;
+    }
+    a, a:visited{
+        text-decoration: none;
+        color: white;
+    }
+
+</style>
