@@ -7,6 +7,8 @@ const { title } = Astro.props;
 
 import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
+import Aside from '../components/Sidebar.astro'
+import Hamburger from '../components/Hamburger.astro';
 import '@fontsource/ubuntu';
 import '@fontsource/ubuntu-mono';
 ---
@@ -24,8 +26,10 @@ import '@fontsource/ubuntu-mono';
 	</head>
 	<body>
 		<Header title={'code & y'} subtitle={'wait but why but for coding'} />
+		<Hamburger />
 		<slot />
 		<Footer />
+
 	</body>
 </html>
 <style is:global>
@@ -37,6 +41,10 @@ import '@fontsource/ubuntu-mono';
 		font-family: 'Ubuntu mono', sans-serif;
 		background: #e9ecee;
 	}
+	/* stop body scrolling */
+.stop-scrolling {
+    overflow: hidden;
+}
 	code {
 		font-family: 'Ubuntu', sans-serif;
 	}

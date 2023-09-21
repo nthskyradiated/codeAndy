@@ -1,0 +1,68 @@
+---
+
+interface Props {
+    sideTitle: string
+
+}
+
+const {sideTitle} = Astro.props
+---
+
+<aside>
+    <div class="container">
+        <h2>{sideTitle}</h2>
+        <ul>
+            <li>some awesome article</li>
+            <li>some awesome article</li>
+            <li>some awesome article</li>
+            <li>some awesome article</li>
+            <li>some awesome article</li>
+        </ul>
+        </aside>
+    </div>
+<style>
+    
+    aside {
+        
+        width: auto;
+        background-color: #7f8b96;
+        color: whitesmoke;
+
+    }
+    .container {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+    h2 {
+        align-items: center;
+
+    }
+
+
+    li {
+        list-style: none;
+        text-align: center;
+        align-items: bottom;
+
+        
+    }
+    a, a:visited{
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: x-large;
+        color: whitesmoke;
+    }
+
+    a:hover {
+        opacity: .65;
+    }
+
+    @media (max-width: 768px) {
+        aside {
+            display: none;
+        }
+	}
+
+</style>
