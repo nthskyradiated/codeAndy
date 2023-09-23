@@ -12,11 +12,12 @@ const {sideTitle} = Astro.props
     <div class="container">
         <h2>{sideTitle}</h2>
         <ul>
-            <li>some awesome article</li>
-            <li>some awesome article</li>
-            <li>some awesome article</li>
-            <li>some awesome article</li>
-            <li>some awesome article</li>
+            <li><a href="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus hic labore necessitatibus, commodi cumque quam, ex vero ipsam corporis tempore doloribus dolorem velit laudantium similique.</a></li>
+            <li><a href="">some awesome article</a></li>
+            <li><a href="">some awesome article</a></li>
+            <li><a href="">some awesome article</a></li>
+            <li><a href="">some awesome article</a></li>
+            
         </ul>
         </aside>
     </div>
@@ -24,34 +25,38 @@ const {sideTitle} = Astro.props
     
     aside {
         
-        width: auto;
+        width: 25%;
         background-color: #7f8b96;
         color: whitesmoke;
+        ;
 
     }
     .container {
         display: flex;
         flex-direction: column;
+        margin: 8%;
+        width: auto;
         text-align: center;
         align-items: center;
+        transform: translateY(25%);
     }
     h2 {
-        align-items: center;
+
+        text-align: left;
+        line-height: 1.5em;
 
     }
 
 
     li {
         list-style: none;
-        text-align: center;
-        align-items: bottom;
-
+        text-align: left;
+        line-height: 2em;
         
     }
     a, a:visited{
         text-decoration: none;
-        text-transform: uppercase;
-        font-size: x-large;
+        font-size: large;
         color: whitesmoke;
     }
 
