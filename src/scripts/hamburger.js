@@ -17,7 +17,7 @@ function navToggle() {
 //hamburger icon color transition on small s
 const headerThreshold = 110; // Scroll threshold for changing the button color
 const mediaQuery = window.matchMedia('(max-width: 768px)');
-const hamburgerButton = document.querySelectorAll('span:not([id^=footer])'); // Replace with your actual button ID
+const hamburgerButton = document.querySelectorAll('.hbg'); // Replace with your actual button ID
 
 // Function to handle scroll event
 function handleScroll() {
@@ -38,7 +38,8 @@ function handleScroll() {
 function toggleScrollListener() {
   if (mediaQuery.matches) {
     // Screen size is 768px or less (mobile)
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll)
+    hamburgerButton.forEach(span => span.style.backgroundColor = 'whitesmoke');
   } else {
     // Screen size is more than 768px (desktop)
     window.removeEventListener('scroll', handleScroll);
