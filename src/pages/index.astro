@@ -8,14 +8,15 @@ import Hero from '../components/Hero.astro';
 <Layout title="Code && Y">
 	<div class="container">
 		<main>
-			<Hero title="Welcome Home" body="a small paragraph here" hasImage={true} image={artboard} />
+			<Hero title="Home" body="...is what you (re)build it..." hasImage={false} image={artboard} />
+			<hr>
 			<section>
 				<h1>Welcome Home</h1>
-				<hr>
-				<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure molestiae, distinctio veniam nemo cupiditate ratione ex laudantium voluptate nostrum, sint eaque dicta beatae odio enim minus tempore minima porro rerum totam earum veritatis iste maxime. Ratione cum velit repellendus itaque, nisi ut similique voluptates neque architecto, id distinctio illo et natus corporis quia voluptatibus quasi blanditiis cupiditate, dolorem officiis laborum possimus expedita. Numquam, consequatur distinctio fugit, porro quis illo impedit pariatur corrupti ex dolore laudantium sed illum? Autem, debitis perferendis quisquam totam tenetur, sequi veritatis aut sit minus consequuntur sapiente. Laudantium aliquam deserunt fugiat. Consectetur nesciunt molestias ipsum aliquid maiores repellendus officia modi, explicabo totam maxime libero ipsam veniam cumque, quis tenetur magni labore. Ipsam maxime exercitationem ratione doloribus quod quidem omnis ex maiores nihil excepturi, assumenda quasi voluptatem in vitae illum adipisci delectus corrupti provident explicabo porro. Error vel repellendus vero consequatur unde velit ipsa, quidem incidunt libero reiciendis. Nemo sed sint rem qui id totam numquam eligendi blanditiis ratione. Ipsum consectetur earum est quae dolores, repellat quod accusamus tempore. Itaque quis necessitatibus nobis aperiam tempora nihil ad molestiae natus enim quam reiciendis quibusdam iste voluptas esse, adipisci magni officia dolore voluptatum. Totam dolorum quasi mollitia delectus vel obcaecati. Quas a molestiae ullam excepturi alias vel libero amet obcaecati, impedit labore rerum id saepe officia ipsa unde expedita rem voluptatibus officiis, sunt deleniti non aperiam? Beatae, nostrum libero obcaecati rerum et voluptas cum amet magni mollitia. Earum neque et similique! Adipisci, eius. Ut omnis nihil ipsa minus ducimus facilis velit ad libero incidunt eius praesentium, non quis temporibus, fugit beatae tenetur sed nemo similique qui soluta nisi voluptatum! Repellat, dolorem. Veritatis deserunt nesciunt, illo natus rem maiores cupiditate praesentium totam exercitationem veniam inventore cumque. Blanditiis temporibus libero eos mollitia quaerat magni corporis in ipsa doloribus possimus, saepe a voluptate odio harum cumque, cum quasi. Officia dolore asperiores corporis omnis tempore odio facilis alias placeat provident corrupti autem eveniet vero aspernatur laborum, recusandae inventore quas minus expedita. Sed, incidunt vitae quas consequatur labore itaque voluptatem alias non necessitatibus laboriosam numquam eligendi. Eum a aliquid illo voluptate asperiores nobis nemo fuga inventore repellat doloremque! Perferendis atque sit soluta. Quidem reprehenderit, illum nobis consequatur vero at voluptas! Iste nesciunt saepe voluptas optio. Tempora modi blanditiis eaque id. Saepe, dolor odit accusantium neque facilis quibusdam at quos repellendus obcaecati suscipit ea quo, expedita iusto excepturi libero unde animi quis placeat quia nisi? Voluptatum nemo, consequatur nostrum itaque natus, rerum quae harum repudiandae dolorum laboriosam labore et a corrupti eaque quod reprehenderit dolor, ea possimus blanditiis fuga. Rem sequi et saepe alias ducimus animi vel, nobis aspernatur nemo sapiente deleniti explicabo ratione exercitationem magni incidunt corporis. Praesentium amet doloremque tenetur quod vitae incidunt facilis omnis mollitia dolorem nobis, sapiente et rem perspiciatis, quia illo animi commodi velit exercitationem ipsum sunt officiis consequatur officia repellendus. Accusamus, quam ipsa suscipit vitae rem iste eum consequuntur quos unde nisi nemo consectetur rerum odit modi impedit, doloremque molestiae vel. Nobis placeat deserunt quia sunt, explicabo molestias corrupti! Dignissimos!</p>
+				<p>You have reached my newly redesigned personal website where I blog stuff I am mostly interested about (and I have lots of stuff I am interested about! 🤪). We will explore thoughts, break down concepts, deconstruct ideas, and put them back together into bite-sized nuggets of wisdom! (I hope!)</p>
+				<p>Unlilke before, I will try to post stuff as frequent as I possibly could just to keep the site alive. But enough about that! I hope you stick around and enjoy your stay!</p>
 			</section>
 		</main>
-		<Sidebar sideTitle={'Recent Awesome Articles'} />
+		<Sidebar sideTitle={'Recent Updates'} />
 	</div>
 	<script>
 		import '../scripts/hamburger.js'
@@ -36,6 +37,9 @@ main {
 .container {
 	display: flex;
 	flex-direction: row;
+}
+section {
+	margin-bottom: 64px;
 }
 section h1{
 	margin: 16px 0;

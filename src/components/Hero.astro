@@ -8,32 +8,40 @@ interface Props {
     image?: ImageMetadata
 }
 const { title, body, hasImage = false, image } = Astro.props
+const noImg = 'noImg'
 ---
 
 <section class="section-wrapper">
-    <div class="image-wrapper">
-        {hasImage && <Image class="img" src={image as ImageMetadata} alt=""/>}
+    <div class= {!hasImage && noImg } >
+        <div class="image-wrapper">
+            {hasImage && <Image class="img" src={image as ImageMetadata} alt=""/>}
+        </div>
+        <div class= "container">
+            <h1>{title}</h1>
+            <span>{body}</span>
+        </div>    
     </div>
-<div class="container">
-    <h1>{title}</h1>
-    <span>{body}</span>
-</div>    
 </section>
 
 <style>
     .section-wrapper {
-        margin: 16% 0;
+        margin: 8% 0;
         width: auto;
         position: relative;
     }
     .image-wrapper {
-        width: 100%;
-        max-height: 600px;
-    }
+        margin: inherit;
 
+    }
+    .noImg {
+        height: 200px;
+        position: relative;
+    }
+    
     .img {
-        width: inherit;
-        min-height: inherit;
+        height: auto;
+        width: 100%;
+        
     }
     .container {
         position: absolute;
@@ -55,10 +63,19 @@ const { title, body, hasImage = false, image } = Astro.props
     }
 
     @media (max-width: 768px) {
-        .container {
-        position:static;
+        h1 {
+            font-size: 32px;
+        }
+
 
     }
+    @media (max-width: 480px) {
+        h1 {
+            font-size: 24px;
+        }
+        span {
+            display: none;
+        }
 
     }
 </style>

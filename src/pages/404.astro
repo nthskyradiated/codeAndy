@@ -1,0 +1,28 @@
+---
+import Layout from "../layouts/Layout.astro";
+import notFound from "../images/404.svg"
+import artboard from '../images/artboard.png';
+import { Image } from 'astro:assets';
+
+---
+<Layout title="404 Not Found">
+    <Image id="notFound" src={notFound} alt="404 Not Found" />
+</Layout>
+<script>
+    import '../scripts/hamburger.js'
+</script>
+<style>
+    #notFound {
+        width: 100% !important;
+        max-height: 100vh !important
+
+    }
+
+    @media (max-width: 768px){
+        #notFound {
+            width: 100%;
+            max-height: 100vh;
+            object-fit: contain
+        }
+    }
+</style>
