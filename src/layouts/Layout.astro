@@ -8,6 +8,8 @@ const { title } = Astro.props;
 import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
 import Aside from '../components/Sidebar.astro'
+import Hero from '../components/Hero.astro'
+import Card from '../components/Card.astro';
 import Hamburger from '../components/Hamburger.astro';
 import '@fontsource/ubuntu';
 import '@fontsource/ubuntu-mono';
@@ -33,13 +35,14 @@ import '@fontsource/ubuntu-mono';
 	</body>
 </html>
 <style is:global>
-	* { 
+	*,*::before, *::after {
+		box-sizing: border-box; 
 		margin: 0; 
 		padding: 0;
 	}
 
 	html {
-		font-family: 'Ubuntu mono', sans-serif;
+		font-family: 'segoe UI', 'Ubuntu-mono', sans-serif;
 		background: #e9ecee;
 	}
 	/* stop body scrolling */

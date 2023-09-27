@@ -1,12 +1,14 @@
 ---
+import artboard from '../images/artboard.png';
 import Layout from '../layouts/Layout.astro';
 import Sidebar from '../components/Sidebar.astro';
-import Card from '../components/Card.astro';
+import Hero from '../components/Hero.astro';
 ---
 
 <Layout title="Code && Y">
 	<div class="container">
 		<main>
+			<Hero title="Welcome Home" body="a small paragraph here" hasImage={true} image={artboard} />
 			<section>
 				<h1>Welcome Home</h1>
 				<hr>
@@ -24,10 +26,10 @@ import Card from '../components/Card.astro';
 
 main {
 	padding: auto;
-	margin: 10%;
+	margin: 0 10%;
 	width: 75%;
-	font-size: large;
-	font-weight: 300;
+	/* font-size: large; */
+	/* font-weight: 0; */
 	line-height: 2em;	
 }
 
