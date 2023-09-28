@@ -1,14 +1,25 @@
 ---
+import { getCollection, getEntry, getEntryBySlug } from "astro:content";
+const blogPosts = await getCollection('blog')
+import laptop from '../images/laptop.svg';
+import Hero from "../components/Hero.astro";
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
-import underConstruction from '../images/underConstruction.jpg'
+// import underConstruction from '../images/underConstruction.jpg'
 ---
 
-<Layout title="Code && Y">
+<Layout title="Code & Y Blog">
 	<main>
+		<Hero title="Blog" body="...is where you (re)code it..." hasImage={true} image={laptop} />
 		<div class="under-construction">
-			<img src={underConstruction.src} alt="under construction" />
-		</div>
+			<!-- <img src={underConstruction.src} alt="under construction" /> -->
+			{blogPosts.map(post => {
+				return (
+						<Card title={post.data.title} body={post.data.excerpt} />
+
+					)
+				})}
+			</div>
 	</main>
 
 	<script>
@@ -18,9 +29,13 @@ import underConstruction from '../images/underConstruction.jpg'
 
 <style>
 
-under-construction {
-
-	align-items: left;
+main {
+	padding: auto;
+	margin: 0 10%;
+	width: 75%;
+	/* font-size: large; */
+	/* font-weight: 0; */
+	line-height: 2em;	
 }
 img {
 	margin: auto;
