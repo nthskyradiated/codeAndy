@@ -1,14 +1,15 @@
 ---
-import artboard from '../images/artboard.png';
+import home from '../images/home.svg';
 import Layout from '../layouts/Layout.astro';
 import Sidebar from '../components/Sidebar.astro';
 import Hero from '../components/Hero.astro';
+
 ---
 
 <Layout title="Code && Y">
 	<div class="container">
 		<main>
-			<Hero title="Home" body="...is what you (re)build it..." hasImage={false} image={artboard} />
+			<Hero title="Home" body="...is where you (re)build it..." hasImage={true} image={home} />
 			<hr>
 			<section>
 				<h1>Welcome Home</h1>

@@ -1,7 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import notFound from "../images/404.svg"
-import artboard from '../images/artboard.png';
 import { Image } from 'astro:assets';
 
 ---
@@ -13,16 +12,9 @@ import { Image } from 'astro:assets';
 </script>
 <style>
     #notFound {
-        width: 100% !important;
-        max-height: 100vh !important
-
+        width: 100%;
+        max-height: 100vh;
+        object-fit:cover;
     }
 
-    @media (max-width: 768px){
-        #notFound {
-            width: 100%;
-            max-height: 100vh;
-            object-fit: contain
-        }
-    }
 </style>

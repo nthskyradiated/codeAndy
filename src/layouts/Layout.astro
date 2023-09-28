@@ -10,6 +10,7 @@ import Footer from '../components/Footer.astro'
 import Aside from '../components/Sidebar.astro'
 import Hero from '../components/Hero.astro'
 import Card from '../components/Card.astro';
+import { ViewTransitions } from 'astro:transitions';
 import Hamburger from '../components/Hamburger.astro';
 import '@fontsource/ubuntu';
 import '@fontsource/ubuntu-mono';
@@ -23,6 +24,7 @@ import '@fontsource/ubuntu-mono';
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" type="image/svg" href="../../public/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
+		<ViewTransitions />
 		<script is:inline src="https://kit.fontawesome.com/72852e9073.js" crossorigin="anonymous"></script>
 		<title>{title}</title>
 	</head>
@@ -44,7 +46,9 @@ import '@fontsource/ubuntu-mono';
 	html {
 		font-family: 'segoe UI', 'Ubuntu-mono', sans-serif;
 		background: #e9ecee;
+		color: #333;
 	}
+
 	/* stop body scrolling */
 .stop-scrolling {
     overflow: hidden;

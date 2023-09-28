@@ -1,12 +1,12 @@
 ---
 layout: ../../layouts/Layout.astro
+isDraft: false
 title: Exploring the Latest JavaScript Technology
-date: 2023-09-23
+excerpt: "JavaScript is in a constant state of evolution, and 2023 brings a wave of exciting new features and trends. Join us as we journey through the latest developments in the JavaScript landscape. From the widespread adoption of async/await to the integration of WebAssembly, we'll uncover the tools and techniques shaping the future of web development with JavaScript."
+slug: exploring-the-latest-javascript-technology
+publishDate: 2023-09-23
 author: John Doe
-tags:
-  - JavaScript
-  - Web Development
-  - Technology
+tags: [Javascript, Web Development, Technology]
 ---
 
 # Exploring the Latest JavaScript Technology

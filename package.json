@@ -1,5 +1,5 @@
 {
-  "name": "codeAndy",
+  "name": "codeandy",
   "type": "module",
   "version": "0.0.1",
   "engines": {
@@ -16,6 +16,10 @@
     "@fontsource-variable/encode-sans": "^5.0.8",
     "@fontsource/ubuntu": "^5.0.8",
     "@fontsource/ubuntu-mono": "^5.0.12",
-    "astro": "^3.1.1"
-  }
+    "astro": "^3.1.4"
+  },
+  "description": "```sh\r npm create astro@latest -- --template basics\r ```",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC"
 }
