@@ -10,7 +10,6 @@ import Footer from '../components/Footer.astro'
 import Aside from '../components/Sidebar.astro'
 import Hero from '../components/Hero.astro'
 import Card from '../components/Card.astro';
-import { ViewTransitions } from 'astro:transitions';
 import Hamburger from '../components/Hamburger.astro';
 import '@fontsource/ubuntu';
 import '@fontsource/ubuntu-mono';
@@ -24,10 +23,10 @@ import '@fontsource/ubuntu-mono';
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" type="image/svg" href="../../public/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<ViewTransitions />
 		<script is:inline src="https://kit.fontawesome.com/72852e9073.js" crossorigin="anonymous"></script>
 		<title>{title}</title>
-	</head>
+
+		</head>
 	<body>
 		<Header title={'code & y'} subtitle={'wait but why but for coding'} />
 		<Hamburger />
@@ -37,12 +36,24 @@ import '@fontsource/ubuntu-mono';
 	</body>
 </html>
 <style is:global>
+
+	:root {
+		--accent: 120, 164, 171;
+		--accent-light: 176, 199, 202;
+		--accent-dark: 233, 236, 231;
+		--accent-gradient: linear-gradient(
+			45deg,
+			rgb(var(--accent)),
+			rgb(var(--accent-light)) 10%,
+			dimgray 75%
+		);
+	}
+
 	*,*::before, *::after {
 		box-sizing: border-box; 
 		margin: 0; 
 		padding: 0;
 	}
-
 	html {
 		font-family: 'segoe UI', 'Ubuntu-mono', sans-serif;
 		background: #e9ecee;

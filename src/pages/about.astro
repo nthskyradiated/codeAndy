@@ -1,16 +1,31 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import about from '../images/about.svg'
 ---
 
 <Layout title="About Code & Y">
-	<main>
-		<p>this is the about page</p>
-	</main>
+	<div class="container">
+		<main>
+			<Hero title="About" body="a brief intro about me..." hasImage={true} image={about}/>
+		</main>
+	</div>
 	<script>
 		import '../scripts/hamburger.js'
 	</script>
 </Layout>
 
 <style>
-
+	svg {
+		height: 100px;
+		width: 100px;
+	}
+main {
+	padding: auto;
+	margin: 0 10%;
+	width: 75%;
+	/* font-size: large; */
+	/* font-weight: 0; */
+	line-height: 2em;	
+}
 </style>

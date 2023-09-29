@@ -4,8 +4,6 @@ const menu = document.getElementById('mobile-menu');
 
 btn.addEventListener('click', navToggle);
 
-
-
 function navToggle() {
   btn.classList.toggle('open');
   overlay.classList.toggle('overlay-show');
@@ -58,4 +56,4 @@ function initializeBehavior() {
 }
 
 // Call the initializeBehavior function to set up the initial behavior
-initializeBehavior();
+initializeBehavior()

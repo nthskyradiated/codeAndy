@@ -7,6 +7,7 @@ slug: exploring-astro-js
 publishDate: 2023-09-28
 author: "John Webdev"
 tags: [Web Development, Astro JS, JavaScript, front-end]
+sortOrder: 1
 ---
 
 # Exploring Astro JS: A Revolutionary Approach to Web Development

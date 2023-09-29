@@ -9,18 +9,20 @@ import Card from '../components/Card.astro';
 ---
 
 <Layout title="Code & Y Blog">
-	<main>
-		<Hero title="Blog" body="...is where you (re)code it..." hasImage={true} image={laptop} />
-		<div class="under-construction">
-			<!-- <img src={underConstruction.src} alt="under construction" /> -->
-			{blogPosts.map(post => {
-				return (
-						<Card title={post.data.title} body={post.data.excerpt} />
-
-					)
-				})}
-			</div>
-	</main>
+	<div class="container">
+		<main>
+			<Hero title="Blog" body="...is where you (re)code it..." hasImage={true} image={laptop} />
+			<hr>
+			<section class="blog-section">
+				<!-- <img src={underConstruction.src} alt="under construction" /> -->
+				{blogPosts.map(post => {
+					return (
+							<Card title={post.data.title} body={post.data.excerpt} />
+						)
+					})}
+				</section>
+		</main>
+	</div>
 
 	<script>
 		import '../scripts/hamburger.js'
@@ -37,6 +39,15 @@ main {
 	/* font-weight: 0; */
 	line-height: 2em;	
 }
+
+.blog-section {
+	display: flex;
+	/* align-items: self-start; */
+	justify-content: space-between;
+	gap: 24px;
+	margin-bottom: 64px;
+
+}
 img {
 	margin: auto;
 	padding-top: 1rem;
@@ -47,5 +58,15 @@ img {
   	width: 80%;
   	/* height: auto; */
 }
+section {
+	margin-bottom: 64px;
+	margin-top: 24px;
+}
+@media (max-width: 768px) {
+        .blog-section {
+            flex-direction: column;
+        }
+	}
+
 
 </style>
