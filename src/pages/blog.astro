@@ -5,21 +5,21 @@ import laptop from '../images/laptop.svg';
 import Hero from "../components/Hero.astro";
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
+
 // import underConstruction from '../images/underConstruction.jpg'
 ---
 
-<Layout title="Code & Y Blog">
+<Layout title="code & y Blog">
 	<div class="container">
 		<main>
 			<Hero title="Blog" body="...is where you (re)code it..." hasImage={true} image={laptop} />
 			<hr>
 			<section class="blog-section">
 				<!-- <img src={underConstruction.src} alt="under construction" /> -->
-				{blogPosts.map(post => {
-					return (
-							<Card title={post.data.title} body={post.data.excerpt} />
+				{blogPosts.map(post =>  (
+						<Card title={post.data.title} body={post.data.excerpt} author={post.data.author} href={`/blog/${post.slug}`}/>
 						)
-					})}
+					)}
 				</section>
 		</main>
 	</div>
@@ -48,6 +48,9 @@ main {
 	margin-bottom: 64px;
 
 }
+ a:visited {
+	text-decoration: none;
+ }
 img {
 	margin: auto;
 	padding-top: 1rem;

@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/Layout.astro
 isDraft: false
 title: "Exploring Astro JS: A Revolutionary Approach to Web Development"
 excerpt: "Discover how Astro JS redefines web development with its unique approach and key differences from other JavaScript libraries."

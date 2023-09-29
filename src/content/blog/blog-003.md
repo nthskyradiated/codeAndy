@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/Layout.astro
 isDraft: false
 title: Unleash the Power of Modern Web Development with Bun
 excerpt: The long wait is over Bun is here to make web development much easier!

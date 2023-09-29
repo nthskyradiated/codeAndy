@@ -26,9 +26,11 @@ import '@fontsource/ubuntu-mono';
 
 		</head>
 	<body>
-		<Header title={'code & y'} subtitle={'wait but why but for coding'} />
+		<Header title={'code & y Blog'} subtitle={'wait but why but for coding'} />
 		<Hamburger />
-		<slot />
+		<div class="container">
+			<slot />
+		</div>
 		<Footer />
 
 	</body>
@@ -56,6 +58,13 @@ import '@fontsource/ubuntu-mono';
 		font-family: 'segoe UI', 'Ubuntu-mono', sans-serif;
 		background: #e9ecee;
 		color: #333;
+	}
+
+	.container {
+		width: 75%;
+		margin: 64px auto;
+		line-height: 2.5em;
+		align-items: center;
 	}
 
 	/* stop body scrolling */
