@@ -1,0 +1,94 @@
+---
+import { getCollection } from "astro:content";
+import Button from "../../components/Button.astro"
+import laptop from '../../images/laptop.svg';
+import Hero from "../../components/Hero.astro";
+import Layout from '../../layouts/Layout.astro';
+import Card from '../../components/Card.astro';
+
+import type { GetStaticPaths } from "astro";
+//get the collection and paginate
+export const getStaticPaths = (async ({ paginate }) => {
+  const blogEntries = await getCollection('blog');
+  return paginate(blogEntries, {pageSize: 4})
+}) satisfies GetStaticPaths
+
+const { page } = Astro.props;
+---
+<Layout title="code & y Blog">
+	<div class="container">
+		<main>
+			<Hero title="Blog" body="...is where you (re)code it..." hasImage={true} image={laptop} />
+			<hr>
+			<div class="section-wrapper-2">
+				<section class="blog-section">
+					{page.data.map((post:any) =>  (
+						<Card title={post.data.title} body={post.data.excerpt} author={post.data.author} date={post.data.publishDate.toDateString()} href={`/blog/${post.slug}`}/>
+						)
+					)}
+				</section>
+			</div>
+			<nav>
+				{page.url.prev && <Button title="Previous" href={page.url.prev}/>} {page.url.next && <Button title="Next" href={page.url.next}/>}
+			</nav>
+		</main>
+	</div>
+</Layout>
+	<script>
+		import '../../scripts/hamburger.js'
+	</script>
+</Layout>
+
+<style>
+
+main {
+	padding: auto;
+	margin: 0 10%;
+	margin-bottom: 16px;
+	width: 75%;
+	/* font-size: large; */
+	/* font-weight: 0; */
+	line-height: 2em;	
+}
+
+.blog-section {
+	display: grid;
+	grid-template-columns: auto auto;
+	/* align-items: self-start; */
+	justify-content: space-between;
+	/* align-items: center; */
+	margin: 32px;
+	gap: 24px;
+	margin-bottom: 64px;
+
+}
+ a:visited {
+	text-decoration: none;
+ }
+img {
+	margin: auto;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+	display: block;
+  	max-width: auto;
+  	max-height:auto;
+  	width: 80%;
+  	/* height: auto; */
+}
+nav {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+
+}
+section {
+	margin-bottom: 64px;
+	margin-top: 24px;
+}
+@media (max-width: 768px) {
+        .blog-section {
+            grid-template-columns: auto;
+        }
+	}
+
+</style>

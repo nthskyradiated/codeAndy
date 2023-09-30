@@ -1,0 +1,70 @@
+---
+interface Props {
+    title: string;
+    href?: string;
+    // color: string[]
+}
+
+const { title, href, color } = Astro.props
+---
+
+<button type="button" class="btn-74"><a href={href}>{title}</a></button>
+
+<style>
+.btn-74,
+.btn-74 *,
+.btn-74 :after,
+.btn-74 :before,
+.btn-74:after,
+.btn-74:before,
+.btn-74 {
+  border: 0 solid;
+  box-sizing: border-box;
+}
+.btn-74 a {
+  color: inherit;
+  text-decoration: none;
+}
+.btn-74 {
+  -webkit-tap-highlight-color: transparent;
+  background-color: #333;
+  background-image: none;
+  color: #aaa;
+  cursor: pointer;
+  font-family: ui-sans-serif, system-ui;
+  font-size: 90%;
+  line-height: 1;
+  margin: 0;
+  text-align: center;
+  -webkit-mask-image: -webkit-radial-gradient(#000, #999);
+  padding: 0;
+}
+
+.btn-74:-moz-focusring {
+  outline: auto;
+}
+
+.btn-74 {
+  background: #aaa;
+  border-radius: 16px;
+  box-shadow: inset 0 0 0 5px dimgray transparent;
+  box-sizing: border-box;
+  color: #555;
+  display: block;
+  filter: drop-shadow(3.4px 3.4px 3.4px rgb(183, 177, 181))
+    drop-shadow(-3.4px -3.4px 3.4px gray);
+  font-weight: 900;
+  -webkit-mask-image: none;
+  overflow: hidden;
+  padding: 8px 24px;
+  position: relative;
+  text-transform: uppercase;
+  transition: 0.2s;
+  width: auto;
+}
+.btn-74:active {
+  box-shadow: inset 0 0 0 5px #999;
+  filter: drop-shadow(0 0 0 rgb(183, 177, 181));
+}
+
+</style>
