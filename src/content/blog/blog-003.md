@@ -5,7 +5,7 @@ excerpt: The long wait is over Bun is here to make web development much easier!
 slug: modern-web-development-with-bun
 publishDate: 2023-09-28
 author: Jane Developer
-tags: [Bun, JavaScript, Web Development, Front-end]
+tags: [Bun, Javascript, Web Development, Front-end]
 sortOrder: 1
 ---
 

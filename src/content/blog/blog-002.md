@@ -5,7 +5,7 @@ excerpt: "Discover how Astro JS redefines web development with its unique approa
 slug: exploring-astro-js
 publishDate: 2023-09-28
 author: "John Webdev"
-tags: [Web Development, Astro JS, JavaScript, front-end]
+tags: [Web Development, Astro JS, Javascript, Front-end]
 sortOrder: 1
 ---
 

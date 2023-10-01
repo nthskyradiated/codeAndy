@@ -1,0 +1,24 @@
+---
+const { title, url } = Astro.props
+import RandomEmoji from "./RandomEmoji.astro"
+---
+<li><a href={url}>{title}</a>
+    <RandomEmoji />
+</li>
+
+<style>
+    li {
+          list-style: none;
+          text-align: left;
+          line-height: 2em;
+      }
+    
+      a, a:visited{
+        text-decoration: none;
+		color: #333;
+        font-size: large;
+    }
+    a:hover {
+            opacity: .65;
+        }
+  </style>

@@ -7,7 +7,6 @@ const { title } = Astro.props;
 
 import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
-import Card from '../components/Card.astro';
 import Hamburger from '../components/Hamburger.astro';
 
 import '@fontsource/ubuntu';
@@ -27,7 +26,7 @@ import '@fontsource/ubuntu-mono';
 
 		</head>
 	<body>
-		<Header title={'code & y Blog'} subtitle={'wait but why but for coding'} />
+		<Header title={'code & y Blog'} subtitle={'Wait... You blog?!'} />
 		<Hamburger />
 		<div class="container">
 			<slot />
@@ -35,7 +34,11 @@ import '@fontsource/ubuntu-mono';
 		<Footer />
 
 	</body>
+
 </html>
+<script>
+	import '../scripts/hamburger.js'
+  </script>
 <style is:global>
 
 	:root {

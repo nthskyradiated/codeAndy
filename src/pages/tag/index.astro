@@ -1,0 +1,38 @@
+---
+import { getCollection } from "astro:content";
+import BlogLayout from "../../layouts/BlogLayout.astro";
+import RandomEmoji from "../../components/RandomEmoji.astro"
+const allPosts = await getCollection("blog");
+const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())];
+const pageTitle = "Tag Index";
+---
+<BlogLayout title={pageTitle}>
+    <h1> Sorted By Tags</h1>
+    <ul>
+        {tags.map((tag) => <li><a href={`/tag/${tag}`}>{tag}</a><RandomEmoji /></li>)}
+        
+    </ul>
+    </aside>
+  </BlogLayout>
+
+  <style>
+        li {
+          list-style: none;
+          text-align: left;
+          line-height: 2em;
+        }
+    
+      a, a:visited{
+        text-decoration: none;
+		color: #333;
+        font-size: large;
+        }
+        a:hover {
+            opacity: .65;
+        }
+        h1 {
+        color: #333;
+        line-height: 2.5rem;
+        padding-bottom: 32px;
+        }
+  </style>

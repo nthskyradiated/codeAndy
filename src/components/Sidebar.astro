@@ -1,8 +1,10 @@
 ---
+import { getCollection } from 'astro:content';
+  const allPosts = await getCollection("blog");
+  const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())];
 
 interface Props {
     sideTitle: string
-
 }
 
 const {sideTitle} = Astro.props
@@ -12,10 +14,7 @@ const {sideTitle} = Astro.props
     <div class="container">
         <h2>{sideTitle}</h2>
         <ul>
-            <!-- <li><a href="">some awesome article</a></li>
-            <li><a href="">some awesome article</a></li>
-            <li><a href="">some awesome article</a></li>
-            <li><a href="">some awesome article</a></li> -->
+            {tags.map((tag) => <li><a href={`/tag/${tag}`}>{tag}</a></li>)}
             
         </ul>
         </aside>
@@ -34,15 +33,17 @@ const {sideTitle} = Astro.props
         display: flex;
         flex-direction: column;
         margin: 8%;
+        padding-bottom: 100px
         width: auto;
         text-align: center;
         align-items: center;
-        transform: translateY(25%);
+        /* transform: translateY(10%); */
     }
     h2 {
 
         text-align: left;
-        line-height: 1.5em;
+        line-height: 2.5rem;
+        padding-bottom: 32px;
 
     }
 
