@@ -2,13 +2,14 @@
 import type { z } from 'astro:content';
 interface Props {
 	title: string;
+	subtitle?: string;
 	body: string;
 	href?: string;
-	author: string;
-	date: Date;
+	author?: string;
+	date?: Date;
 }
 
-const { href, title, body, author, date } = Astro.props;
+const { href, title, body, author, date, subtitle } = Astro.props;
 ---
 
 <li class="link-card">
@@ -19,8 +20,9 @@ const { href, title, body, author, date } = Astro.props;
 		</h2>
 		<strong><small>{author}</small></strong>
 		<p>
-			{body}
+			{subtitle}
 		</p>
+		<p>{body}</p>
 		<small>{date}</small>
 	</a>
 </li>

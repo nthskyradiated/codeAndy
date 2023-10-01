@@ -1,14 +1,26 @@
 ---
+import { Image } from 'astro:assets'
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
-import about from '../images/about.svg'
+import Card from '../components/Card.astro';
+import about from '../images/about.svg';
+import pic from '../images/Andy.jpg';
+
+const description: string = "My interests include open-source, full-stack web development, and DevOps( basically breaking down stuff and piecing 2 and 2 together 🤣). I'm also into art and music, fitness, being outdoors and rock climbing! 🧗 I'm also a co-owner of a bouldering gym in the Philippines called Pump Factory."
+
 ---
 
 <Layout title="About Code & Y">
 	<div class="container">
 		<main>
 			<Hero title="About" body="a brief intro about me..." hasImage={true} image={about}/>
+			<hr>
+			<div class="profile-wrapper">
+				<Image class="image" src={pic} alt="why so serious?!"/>	
+				<Card title="Andy Pandaan" subtitle="Full Stack / Devops Engineer" body={description} href='https://andypandaan.info'/>
+			</div>
 		</main>
+	</div>
 	</div>
 	<script>
 		import '../scripts/hamburger.js'
@@ -16,16 +28,53 @@ import about from '../images/about.svg'
 </Layout>
 
 <style>
-	svg {
-		height: 100px;
-		width: 100px;
+
+	main {
+		padding: auto;
+		margin: 0 10%;
+		margin-top: -5%;
+		width: 75%;
+		/* font-size: large; */
+		/* font-weight: 0; */
+		line-height: 2em;	
 	}
-main {
-	padding: auto;
-	margin: 0 10%;
-	width: 75%;
-	/* font-size: large; */
-	/* font-weight: 0; */
-	line-height: 2em;	
-}
+
+	.profile-wrapper {
+		display: flex;
+		/* width: 100%; */
+		flex-direction: row;
+		justify-content: space-evenly;
+		gap: 24px;
+		margin: 32px;
+	}
+
+	.image {
+
+		width: 25%;
+		min-width: 25%;
+		height: 25%;
+		min-height: 25%;
+		/* display: block; */
+		/* margin: auto; */
+		border-radius: 50%;
+		/* object-fit: cover */
+		
+	}
+	@media (max-width: 768px) {
+        .profile-wrapper {
+			flex-direction: column;
+			align-items: center;
+			gap: 2px;
+		}
+		.image {
+
+			width: 50%;
+			min-width: 50%;
+			height: 50%;
+			min-height: 50%;
+			border-radius: 50%;
+			transform: translateY(12px);
+			z-index: 2;
+		}
+	}
 </style>
