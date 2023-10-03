@@ -12,7 +12,7 @@ const noImg = 'noImg'
 ---
 
 <section class="section-wrapper">
-    <div class= {!hasImage && noImg } >
+    <div class= {!hasImage as string && noImg } >
         <div class="image-wrapper">
             {hasImage && <Image class="img" src={image as ImageMetadata} alt=""/>}
         </div>
