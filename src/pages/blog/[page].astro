@@ -15,10 +15,10 @@ export const getStaticPaths = (async ({ paginate }) => {
 
 const { page } = Astro.props;
 ---
-<Layout title="code & y Blog">
+<Layout title="Debug the Mind | Journals">
 	<div class="container">
 		<main>
-			<Hero title="Blog" body="...is where you (re)code it..." hasImage={true} image={laptop} />
+			<Hero title="~$ ls -al" body="...is where you (re)code it..." hasImage={true} image={laptop} />
 			<hr>
 			<div class="section-wrapper-2">
 				<section class="blog-section">
@@ -62,16 +62,7 @@ main {
  a:visited {
 	text-decoration: none;
  }
-img {
-	margin: auto;
-	padding-top: 1rem;
-	padding-bottom: 1rem;
-	display: block;
-  	max-width: auto;
-  	max-height:auto;
-  	width: 80%;
-  	/* height: auto; */
-}
+
 nav {
 	display: flex;
 	justify-content: space-evenly;
