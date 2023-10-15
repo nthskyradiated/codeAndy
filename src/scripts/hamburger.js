@@ -4,6 +4,13 @@ const menu = document.getElementById('mobile-menu');
 
 btn.addEventListener('click', navToggle);
 
+document.addEventListener('astro:after-swap', () => {
+  btn.classList.remove('open');
+  overlay.classList.remove('overlay-show');
+  document.body.classList.remove('stop-scrolling');
+  menu.classList.remove('show-menu');
+})
+
 function navToggle() {
   btn.classList.toggle('open');
   overlay.classList.toggle('overlay-show');
