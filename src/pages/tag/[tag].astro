@@ -29,7 +29,7 @@ const { posts } = Astro.props;
         { posts.map((post:any) => <BlogPost url={'/blog/' + post.slug} title={post.data.title} />) }
     </ul>
 </BlogLayout>
-<style>
+<style lang='scss'>
 h1 {
   color: #333;
   line-height: 2.5rem;
