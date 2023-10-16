@@ -61,10 +61,12 @@ const { href, title, body, author, date, subtitle } = Astro.props;
 		margin-bottom: 0.5rem;
 	}
 	.link-card:is(:hover, :focus-within) {
+		
 		background-position: 0;
-		background-image: $accent-gradient;
+		background: $accent-gradient;
 	}
 	.link-card:is(:hover, :focus-within) h2 {
 		color: $accent-dark;
+
 	}
 </style>
