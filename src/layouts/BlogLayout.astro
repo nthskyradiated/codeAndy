@@ -36,11 +36,13 @@ import '@fontsource/ubuntu-mono';
 	</body>
 
 </html>
+
 <script>
 	import '../scripts/hamburger.js'
-  </script>
-<style is:global lang='scss'>
+</script>
 
+<style is:global lang='scss'>
+@import '../styles/_variables.scss';
 	*,*::before, *::after {
 		box-sizing: border-box; 
 		margin: 0; 
@@ -48,8 +50,8 @@ import '@fontsource/ubuntu-mono';
 	}
 	html {
 		font-family: 'segoe UI', 'Ubuntu-mono', sans-serif;
-		background: #e9ecee;
-		color: #333;
+		background: $bg-primary-dark;
+		color: $bg-primary-light;
 	}
 	body {
 		min-height: 100vh;

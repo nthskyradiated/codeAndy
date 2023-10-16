@@ -38,6 +38,7 @@ import '@fontsource/ubuntu-mono';
 	import '../scripts/hamburger.js'
 </script>
 <style is:global lang='scss'>
+@import '../styles/_variables.scss';
 
 	*,*::before, *::after {
 		box-sizing: border-box; 
@@ -46,8 +47,8 @@ import '@fontsource/ubuntu-mono';
 	}
 	html {
 		font-family: 'segoe UI', 'Ubuntu-mono', sans-serif;
-		background: #e9ecee;
-		color: #333;
+		background: $bg-primary-dark;
+		color: $bg-primary-light;
 	}
 	
 	body {

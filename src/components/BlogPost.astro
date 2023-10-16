@@ -7,6 +7,7 @@ import RandomEmoji from "./RandomEmoji.astro"
 </li>
 
 <style lang='scss'>
+    @import '../styles/_variables.scss';
     li {
           list-style: none;
           text-align: left;
@@ -15,7 +16,7 @@ import RandomEmoji from "./RandomEmoji.astro"
     
       a, a:visited{
         text-decoration: none;
-		color: #333;
+		color: $bg-primary-light;
         font-size: large;
         &:hover {
                 opacity: .65;
