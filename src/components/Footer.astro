@@ -31,12 +31,9 @@
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-    }
-    .footer p {
-
         color: whitesmoke;
-
     }
+
     .socials {
         margin:  16px 0;
         justify-content: center;
@@ -51,13 +48,13 @@
     li {
         list-style: none;
         margin-right: 32px;
-    }
-    a {
-        color: whitesmoke;
-        font-size: x-large;
-     }
-     a:hover {
-        opacity: .65;
+        a {
+            color: whitesmoke;
+            font-size: x-large;
+            &:hover {
+               opacity: .65;
+           }
+         }
     }
 
      @media (max-width: 768px) {
@@ -66,11 +63,11 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-        }
-        span, .socials ul li{
-        margin: 0 16px;
-        text-align: center;
-        list-style: none;
+                span, .socials ul li{
+                margin: 0 16px;
+                text-align: center;
+                list-style: none;
+                }
         }
     }
      

@@ -37,14 +37,14 @@ const { title, subtitle='Ask why later...'} = Astro.props
         background-color: #5a6773;
         width: 100%;
         padding-bottom: 8px;
-    }
-    .container {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: flex-end;
-        margin: auto;
-        width: 80%;
+        .container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin: auto;
+            width: 80%;
+        }
     }
     .brand-container {
         display: flex;
@@ -81,9 +81,9 @@ const { title, subtitle='Ask why later...'} = Astro.props
         text-transform: uppercase;
         font-size: x-large;
         color: whitesmoke;
-    }
-    a:hover {
-        opacity: .65;
+        &:hover {
+            opacity: .65;
+        }
     }
     @media (max-width: 768px) {
         nav {
@@ -97,10 +97,10 @@ const { title, subtitle='Ask why later...'} = Astro.props
             flex-direction: column-reverse;
             width: 50%;
             align-items: left;
-        }
-        .title-container {
-            text-align: center;
-            margin-bottom: -40px
+            .title-container {
+                text-align: center;
+                margin-bottom: -40px
+            }
         }
     }
 </style>

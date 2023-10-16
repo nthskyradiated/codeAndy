@@ -47,15 +47,17 @@ const {sideTitle} = Astro.props
         list-style: none;
         text-align: left;
         line-height: 2em;
+        a, a:visited{
+            text-decoration: none;
+            font-size: large;
+            color: whitesmoke;
+    
+            &:hover {
+            opacity: .65;
+            }
+        }
     }
-    a, a:visited{
-        text-decoration: none;
-        font-size: large;
-        color: whitesmoke;
-    }
-    a:hover {
-        opacity: .65;
-    }
+
     @media (max-width: 768px) {
         aside {
             display: none;
