@@ -27,6 +27,7 @@ const { href, title, body, author, date, subtitle } = Astro.props;
 </li>
 <style lang='scss'>
 	@import '../styles/_variables.scss';
+
 	.link-card {
 		list-style: none;
 		display: flex;
@@ -64,6 +65,6 @@ const { href, title, body, author, date, subtitle } = Astro.props;
 		background-image: $accent-gradient;
 	}
 	.link-card:is(:hover, :focus-within) h2 {
-		color: rgb ($accent-dark);
+		color: $accent-dark;
 	}
 </style>

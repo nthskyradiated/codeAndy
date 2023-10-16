@@ -7,7 +7,7 @@ const { title } = Astro.props;
 
 import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
-import { ViewTransitions } from 'astro:transitions';
+// import { ViewTransitions } from 'astro:transitions';
 import Hamburger from '../components/Hamburger.astro';
 import '@fontsource/ubuntu';
 import '@fontsource/ubuntu-mono';
@@ -22,7 +22,7 @@ import '@fontsource/ubuntu-mono';
 		<link rel="icon" type="image/svg" href="../../public/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<script is:inline src="https://kit.fontawesome.com/72852e9073.js" crossorigin="anonymous"></script>
-		<ViewTransitions />
+		<!-- <ViewTransitions /> -->
 		<title>{title}</title>
 
 		</head>
@@ -39,18 +39,6 @@ import '@fontsource/ubuntu-mono';
 </script>
 <style is:global lang='scss'>
 
-	:root {
-		--accent: 120, 164, 171;
-		--accent-light: 176, 199, 202;
-		--accent-dark: 233, 236, 231;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 10%,
-			dimgray 75%
-		);
-	}
-
 	*,*::before, *::after {
 		box-sizing: border-box; 
 		margin: 0; 
@@ -61,13 +49,20 @@ import '@fontsource/ubuntu-mono';
 		background: #e9ecee;
 		color: #333;
 	}
-
+	
+	body {
+		min-height: 100vh;
+		footer {
+			position: sticky;
+  			top: 0%;
+		}
+}
 	main {
 		padding: auto;
 		margin: 0 10%;
 		width: 75%;
 		line-height: 2em;
-		margin-bottom: 64px;	
+		margin-bottom: 64px;
 	}
 
 	a:visited {
@@ -77,7 +72,5 @@ import '@fontsource/ubuntu-mono';
 .stop-scrolling {
     overflow: hidden;
 }
-	code {
-		font-family: 'Ubuntu', sans-serif;
-	}
+
 </style>
