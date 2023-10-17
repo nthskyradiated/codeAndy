@@ -9,7 +9,8 @@ const { title, href } = Astro.props
 
 <button type="button" class="btn-74"><a href={href}>{title}</a></button>
 
-<style>
+<style lang='scss'>
+@import '../styles/_variables.scss';
 .btn-74,
 .btn-74 *,
 .btn-74 :after,
@@ -21,21 +22,22 @@ const { title, href } = Astro.props
   box-sizing: border-box;
 }
 .btn-74 a {
-  color: inherit;
+  color: $bg-secondary-light;
+  opacity: .6;
   text-decoration: none;
 }
 .btn-74 {
   -webkit-tap-highlight-color: transparent;
   background-color: #333;
   background-image: none;
-  color: #aaa;
+  color: $bg-primary-dark;
   cursor: pointer;
   font-family: ui-sans-serif, system-ui;
   font-size: 90%;
   line-height: 1;
   margin: 0;
   text-align: center;
-  -webkit-mask-image: -webkit-radial-gradient(#000, #999);
+  -webkit-mask-image: -webkit-radial-gradient(#000, dimgray);
   padding: 0;
 }
 
@@ -44,14 +46,14 @@ const { title, href } = Astro.props
 }
 
 .btn-74 {
-  background: #aaa;
+  background: $bg-secondary-dark;
   border-radius: 16px;
   box-shadow: inset 0 0 0 5px dimgray transparent;
   box-sizing: border-box;
   color: #555;
   display: block;
-  filter: drop-shadow(1.4px 1.4px 1.4px rgb(183, 177, 181))
-    drop-shadow(-1.4px -1.4px 1.4px gray);
+  // filter: drop-shadow(1px 1px 1px rgb(183, 177, 181))
+  //   drop-shadow(-.5px -.5px 1px $bg-tertiary-dark);
   font-weight: 900;
   -webkit-mask-image: none;
   overflow: hidden;
@@ -61,9 +63,9 @@ const { title, href } = Astro.props
   transition: 0.2s;
   width: auto;
 }
-.btn-74:active {
-  box-shadow: inset 0 0 0 5px #999;
-  filter: drop-shadow(0 0 0 rgb(183, 177, 181));
-}
+// .btn-74:active {
+//   box-shadow: inset 0 0 0 5px #999;
+//   filter: drop-shadow(0 0 0 rgb(183, 177, 181));
+// }
 
 </style>

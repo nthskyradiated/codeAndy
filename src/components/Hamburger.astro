@@ -2,18 +2,18 @@
 ---
 
 <!-- Puts an overlay for hamburger menu -->
-<div id="overlay">
+<div id="overlay" transition:persist>
 
 </div>
 
-<button id="menu-btn" class="hamburger" type="button">
+<button id="menu-btn" class="hamburger" type="button" transition:persist>
     <span class="hamburger-top hbg"></span>
     <span class="hamburger-middle hbg"></span>
     <span class="hamburger-bottom hbg"></span>
   </button>
 
         
-    <nav id="mobile-menu" class="mobile-main-menu" aria-label="mobile">
+    <nav id="mobile-menu" class="mobile-main-menu" aria-label="mobile" transition:persist>
         <ul>
             <li><a href="/" class="">Home</a></li>
             <li><a href="/about" class="">About</a></li>
@@ -22,7 +22,8 @@
         <small><a href="/tag" class="unstyled">browse by tag</a></small>
     </nav>
 
-<style>
+<style lang='scss'>
+    @import '../styles/_variables.scss';
 .hamburger {
     position: fixed;
     top: 40px;
@@ -33,6 +34,10 @@
     height: 20px;
     background: none;
     border: none;
+    &:hover {
+        opacity: .65;
+        transition: .4s ease-in-out;
+    }
 }
 
 .hamburger-top,
@@ -43,7 +48,7 @@
     height: 2px;
     top: 0;
     left: 0;
-    background: whitesmoke;
+    background: $bg-secondary-light;
     transition: all 0.5s;
 }
 
@@ -112,14 +117,14 @@ a:not(.unstyled), a:visited{
         text-decoration: none;
         text-transform: uppercase;
         font-size: x-large;
-        color: whitesmoke;
+        color: $bg-secondary-light;
     }
 a:hover {
     opacity: .5;
 }
 small {
     padding-top: 24px;
-    color: whitesmoke;
+    color: $bg-secondary-light;
     text-decoration: none;
 }
 .show-menu {

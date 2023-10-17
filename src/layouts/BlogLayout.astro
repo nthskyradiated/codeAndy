@@ -19,14 +19,14 @@ import '@fontsource/ubuntu-mono';
 		<meta charset="UTF-8" />
 		<meta name="description" content="Code and Y Website" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="icon" type="image/svg" href="../../public/favicon.svg" />
+		<link rel="icon" type="image/svg" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<script is:inline src="https://kit.fontawesome.com/72852e9073.js" crossorigin="anonymous"></script>
 		<title>{title}</title>
 
 		</head>
 	<body>
-		<Header title={'Debug the Mind Journals'} subtitle={'Wait... You blog?!'} />
+		<Header title={'Debug the Mind Journals'} />
 		<Hamburger />
 		<div class="container">
 			<slot />
@@ -36,23 +36,13 @@ import '@fontsource/ubuntu-mono';
 	</body>
 
 </html>
+
 <script>
 	import '../scripts/hamburger.js'
-  </script>
-<style is:global>
+</script>
 
-	:root {
-		--accent: 120, 164, 171;
-		--accent-light: 176, 199, 202;
-		--accent-dark: 233, 236, 231;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 10%,
-			dimgray 75%
-		);
-	}
-
+<style is:global lang='scss'>
+@import '../styles/_variables.scss';
 	*,*::before, *::after {
 		box-sizing: border-box; 
 		margin: 0; 
@@ -60,14 +50,21 @@ import '@fontsource/ubuntu-mono';
 	}
 	html {
 		font-family: 'segoe UI', 'Ubuntu-mono', sans-serif;
-		background: #e9ecee;
-		color: #333;
+		background: $bg-primary-dark;
+		color: $bg-primary-light;
 	}
+	body {
+		min-height: 100vh;
+
+		footer {
+			position: sticky;
+  			top: 100%;
+		}
+}
 
 	.container {
 		width: 75%;
 		margin: 64px auto;
-		line-height: 2.5em;
 		align-items: center;
 	}
 
@@ -75,7 +72,5 @@ import '@fontsource/ubuntu-mono';
 .stop-scrolling {
     overflow: hidden;
 }
-	code {
-		font-family: 'Ubuntu', sans-serif;
-	}
+
 </style>

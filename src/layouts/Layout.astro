@@ -7,7 +7,7 @@ const { title } = Astro.props;
 
 import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
-import Card from '../components/Card.astro';
+// import { ViewTransitions } from 'astro:transitions';
 import Hamburger from '../components/Hamburger.astro';
 import '@fontsource/ubuntu';
 import '@fontsource/ubuntu-mono';
@@ -19,9 +19,10 @@ import '@fontsource/ubuntu-mono';
 		<meta charset="UTF-8" />
 		<meta name="description" content="Code and Y Website" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="icon" type="image/svg" href="../../public/favicon.svg" />
+		<link rel="icon" type="image/svg" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<script is:inline src="https://kit.fontawesome.com/72852e9073.js" crossorigin="anonymous"></script>
+		<!-- <ViewTransitions /> -->
 		<title>{title}</title>
 
 		</head>
@@ -36,19 +37,8 @@ import '@fontsource/ubuntu-mono';
 <script>
 	import '../scripts/hamburger.js'
 </script>
-<style is:global>
-
-	:root {
-		--accent: 120, 164, 171;
-		--accent-light: 176, 199, 202;
-		--accent-dark: 233, 236, 231;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 10%,
-			dimgray 75%
-		);
-	}
+<style is:global lang='scss'>
+@import '../styles/_variables.scss';
 
 	*,*::before, *::after {
 		box-sizing: border-box; 
@@ -57,15 +47,31 @@ import '@fontsource/ubuntu-mono';
 	}
 	html {
 		font-family: 'segoe UI', 'Ubuntu-mono', sans-serif;
-		background: #e9ecee;
-		color: #333;
+		background: $bg-primary-dark;
+		color: $bg-primary-light;
+	}
+	
+	body {
+		min-height: 100vh;
+		footer {
+			position: sticky;
+  			top: 0%;
+		}
+}
+	main {
+		padding: auto;
+		margin: 0 10%;
+		width: 75%;
+		line-height: 2em;
+		margin-bottom: 64px;
 	}
 
+	a:visited {
+	text-decoration: none;
+ }
 	/* stop body scrolling */
 .stop-scrolling {
     overflow: hidden;
 }
-	code {
-		font-family: 'Ubuntu', sans-serif;
-	}
+
 </style>

@@ -25,13 +25,15 @@ const { href, title, body, author, date, subtitle } = Astro.props;
 		<small>{date}</small>
 	</a>
 </li>
-<style>
+<style lang='scss'>
+	@import '../styles/_variables.scss';
+
 	.link-card {
 		list-style: none;
 		display: flex;
 		/* padding: 8px; */
-		background-color: #7f8081;
-		color: #111;
+		background-color: $bg-secondary-dark;
+		color: $bg-secondary-light;
 		opacity: .8;
 		background-image: none;
 		background-size: 100%;
@@ -45,7 +47,7 @@ const { href, title, body, author, date, subtitle } = Astro.props;
 		text-decoration: none;
 		line-height: 1.4;
 		padding: calc(1.5rem - 1px);
-		color: #333;
+		color: $bg-secondary-light;
 		opacity: 0.9;
 	}
 	
@@ -59,10 +61,13 @@ const { href, title, body, author, date, subtitle } = Astro.props;
 		margin-bottom: 0.5rem;
 	}
 	.link-card:is(:hover, :focus-within) {
+		
 		background-position: 0;
-		background-image: var(--accent-gradient);
+		// background: $accent-gradient;
+		
 	}
 	.link-card:is(:hover, :focus-within) h2 {
-		color: rgb(var(--accent-dark));
+		// background: $accent-gradient;
+
 	}
 </style>

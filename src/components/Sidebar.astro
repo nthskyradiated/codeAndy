@@ -19,19 +19,19 @@ const {sideTitle} = Astro.props
         </ul>
         </aside>
     </div>
-<style>
-    
+<style lang='scss'>
+@import '../styles/_variables.scss';
     aside {
         
         width: 25%;
-        background-color: #7f8b96;
+        background-color: $theme-red-1;
         color: whitesmoke;
     }
     .container {
         display: flex;
         flex-direction: column;
         margin: 8%;
-        padding-bottom: 100px
+        padding-bottom: 100px;
         width: auto;
         text-align: center;
         align-items: center;
@@ -47,15 +47,18 @@ const {sideTitle} = Astro.props
         list-style: none;
         text-align: left;
         line-height: 2em;
+        a, a:visited{
+            text-decoration: none;
+            font-size: large;
+            color: whitesmoke;
+    
+        }
+        &:hover {
+        opacity: .5;
+        transition: .4s ease-in-out;
+        }
     }
-    a, a:visited{
-        text-decoration: none;
-        font-size: large;
-        color: whitesmoke;
-    }
-    a:hover {
-        opacity: .65;
-    }
+
     @media (max-width: 768px) {
         aside {
             display: none;

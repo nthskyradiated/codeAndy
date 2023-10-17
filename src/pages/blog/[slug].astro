@@ -14,7 +14,22 @@ const { entry } = Astro.props;
 const { Content } = await entry.render();
 ---
 <BlogLayout title="Debug the Mind | Journals">
-
-  <Content />
+  
+  <div class="content-container">
+    <Content />
+  </div>
 
 </BlogLayout>
+
+<style lang="scss">
+  .content-container {
+    line-height: 3rem;
+    font-size: large;
+  }
+
+  @media (max-width: 768px) {
+        .content-container {
+            line-height: 2.5rem;
+        }
+	}
+</style>

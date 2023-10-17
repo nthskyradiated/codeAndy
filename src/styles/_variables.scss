@@ -1,0 +1,35 @@
+@use 'sass:list';
+
+$text-primary-dark: #333; 
+$text-primary-light: #f1f1f1;
+
+$bg-primary-dark: #0f0f0f;
+$bg-secondary-dark: #282828;
+$bg-tertiary-dark: dimgray;
+
+$bg-primary-light: whitesmoke;
+$bg-secondary-light: #e7e7e7;
+$bg-tertiary-light: #dcdcdc;
+
+$theme-blue-1: #2c3863;
+$theme-blue-2: #1d2951;
+$theme-blue-3: #2a52be;
+
+$theme-red-1: #7e191b;
+$theme-red-2: #b22222;
+$theme-red-3: #cc6666;
+
+$theme-green-1: #01796F;
+$theme-green-2: #00A693;
+$theme-green-3: #50C878;
+
+    $accent: rgb(120, 164, 171);
+    $accent-light: rgb(176, 199, 202);
+    $accent-dark: rgb(233, 236, 231);
+    $accent-gradient: linear-gradient( 60deg, $theme-blue-3, $bg-secondary-light,);
+
+
+
+    // @mixin accent-gradient($direction, $colors) {
+    //     background-image: linear-gradient($direction: 45deg, $accent, rgba ($accent-light, 10%), dimgray 75%)
+    // }
