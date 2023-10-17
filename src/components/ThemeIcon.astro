@@ -60,6 +60,11 @@
   if (currentTheme) {
     // Set the body data-theme attribute to match the local storage item
     document.documentElement.setAttribute("data-theme", currentTheme);
+    const dataTheme = document.querySelectorAll('[data-theme]');
+      for (var i = 0; i < dataTheme.length; i++) {
+        dataTheme[i].setAttribute("data-theme", currentTheme);
+        console.log(dataTheme)
+      }
 
 
     // If the current theme is dark, check the theme toggle
@@ -93,6 +98,6 @@
   }
 
   // Add an event listener to the theme toggle, which will switch the theme
-  themeToggle.addEventListener("change", switchTheme, false);
+  themeToggle.addEventListener("change", switchTheme, true);
 
 </script>
