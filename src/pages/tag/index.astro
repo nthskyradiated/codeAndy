@@ -16,6 +16,7 @@ const pageTitle = "Tag Index";
   </BlogLayout>
 
   <style lang='scss'>
+    @import '../../styles/_variables.scss';
         li {
           list-style: none;
           text-align: left;
@@ -24,14 +25,14 @@ const pageTitle = "Tag Index";
     
       a, a:visited{
         text-decoration: none;
-		    color: #333;
+		    color: $bg-secondary-light;
         font-size: large;
         &:hover {
             opacity: .65;
         }
         }
         h1 {
-        color: #333;
+        color: $bg-secondary-light;
         line-height: 2.5rem;
         padding-bottom: 32px;
         }

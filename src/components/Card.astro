@@ -33,7 +33,7 @@ const { href, title, body, author, date, subtitle } = Astro.props;
 		display: flex;
 		/* padding: 8px; */
 		background-color: $bg-secondary-dark;
-		color: $bg-primary-light;
+		color: $bg-secondary-light;
 		opacity: .8;
 		background-image: none;
 		background-size: 100%;
@@ -63,10 +63,11 @@ const { href, title, body, author, date, subtitle } = Astro.props;
 	.link-card:is(:hover, :focus-within) {
 		
 		background-position: 0;
-		background: $accent-gradient;
+		// background: $accent-gradient;
+		
 	}
 	.link-card:is(:hover, :focus-within) h2 {
-		color: $accent-dark;
+		// background: $accent-gradient;
 
 	}
 </style>

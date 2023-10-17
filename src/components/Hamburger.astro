@@ -23,6 +23,7 @@
     </nav>
 
 <style lang='scss'>
+    @import '../styles/_variables.scss';
 .hamburger {
     position: fixed;
     top: 40px;
@@ -47,7 +48,7 @@
     height: 2px;
     top: 0;
     left: 0;
-    background: whitesmoke;
+    background: $bg-secondary-light;
     transition: all 0.5s;
 }
 
@@ -116,14 +117,14 @@ a:not(.unstyled), a:visited{
         text-decoration: none;
         text-transform: uppercase;
         font-size: x-large;
-        color: whitesmoke;
+        color: $bg-secondary-light;
     }
 a:hover {
     opacity: .5;
 }
 small {
     padding-top: 24px;
-    color: whitesmoke;
+    color: $bg-secondary-light;
     text-decoration: none;
 }
 .show-menu {
