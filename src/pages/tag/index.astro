@@ -9,11 +9,11 @@ const pageTitle = "Tag Index";
 <BlogLayout title={pageTitle}>
     <h1> Sorted By Tags</h1>
     <ul>
-        {tags.map((tag) => <li><a href={`/tag/${tag}`}>{tag}</a><RandomEmoji /></li>)}
+        {tags.map((tag) => <li><a data-theme='' href={`/tag/${tag}`}>{tag}</a><RandomEmoji /></li>)}
         
     </ul>
     </aside>
-  </BlogLayout>
+</BlogLayout>
 
   <style lang='scss'>
     @import '../../styles/_variables.scss';
@@ -36,4 +36,12 @@ const pageTitle = "Tag Index";
         line-height: 2.5rem;
         padding-bottom: 32px;
         }
+
+        html[data-theme='light'] h1{
+         color: $bg-secondary-dark;
+        
+        } 
+        a[data-theme='light'], a:visited[data-theme-='light'] {
+          color: $bg-secondary-dark;
+         }
   </style>

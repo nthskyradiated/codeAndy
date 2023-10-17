@@ -2,7 +2,7 @@
 
 ---
 
-<footer>
+<footer data-theme="">
     <div class="footer">
 
         <span>Copyright &copy; 2023 All Rights Reserved</span>
@@ -57,6 +57,16 @@
                transition: .4s ease-in-out;
            }
          }
+    }
+
+    footer[data-theme='light'] {
+        background-color: $theme-blue-2;
+        .footer {
+            color: $theme-red-1;
+        }
+        a, a:visited {
+            color: $theme-red-3
+        }
     }
 
      @media (max-width: 768px) {

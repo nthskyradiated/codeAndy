@@ -10,7 +10,7 @@ interface Props {
 const {sideTitle} = Astro.props
 ---
 
-<aside>
+<aside data-theme="">
     <div class="container">
         <h2>{sideTitle}</h2>
         <ul>
@@ -57,6 +57,9 @@ const {sideTitle} = Astro.props
         opacity: .5;
         transition: .4s ease-in-out;
         }
+    }
+    aside[data-theme='light'] {
+        background-color: $theme-blue-1;
     }
 
     @media (max-width: 768px) {

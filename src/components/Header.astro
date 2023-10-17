@@ -4,17 +4,18 @@ interface Props {
     title: string
     subtitle?: string
 }
-
+import ThemeIcon from "./ThemeIcon.astro"
 const { title, subtitle='Ask why later...'} = Astro.props
 ---
 
-<header>
+<header data-theme="">
     <div class="container">
         <div class="brand-container">
             <div class="logo-container">
                 <a href="#">
                     <img src={logo.src} alt="code and y" />
                 </a>
+                <ThemeIcon />
             </div>
             <div class="title-container">
                 <h1>{title}</h1>
@@ -86,6 +87,18 @@ const { title, subtitle='Ask why later...'} = Astro.props
             transition: .5s ease-in-out;
         }
     }
+    header[data-theme="light"] {
+        & {
+            background-color: $theme-blue-2;
+        }
+        .title-container {
+        color: $theme-red-1;
+        }
+        a, a:visited{
+        color: $theme-red-2;
+	    }
+    }
+
     @media (max-width: 768px) {
         nav {
             display: none;
