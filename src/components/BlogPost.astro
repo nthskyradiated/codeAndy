@@ -2,7 +2,7 @@
 const { title, url } = Astro.props
 import RandomEmoji from "./RandomEmoji.astro"
 ---
-<li ><a data-theme='' href={url}>{title}</a>
+<li ><a data-theme='dark' href={url}>{title}</a>
     <RandomEmoji />
 </li>
 
@@ -25,5 +25,8 @@ import RandomEmoji from "./RandomEmoji.astro"
 
     a[data-theme='light'], a:visited[data-theme='light'] {
         color: $bg-primary-dark;
+    }
+    a[data-theme='dark'], a:visited[data-theme='dark'] {
+        color: $bg-secondary-light;
     }
   </style>
