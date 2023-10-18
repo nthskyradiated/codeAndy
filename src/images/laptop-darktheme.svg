@@ -31,7 +31,7 @@
   <defs
      id="defs1">
     <style
-       id="style1">&#10;      .cls-1 {&#10;        fill: #0f0f0f;&#10;        fill-rule: evenodd;&#10;        stroke: #dcdcdc;&#10;        stroke-linecap: round;&#10;        stroke-linejoin: round;&#10;        stroke-width: 11.97px;&#10;      }&#10;    </style>
+       id="style1">&#10;      .cls-1 {&#10;        fill: #dcdcdc;&#10;        fill-rule: evenodd;&#10;        stroke: #0f0f0f;&#10;        stroke-linecap: round;&#10;        stroke-linejoin: round;&#10;        stroke-width: 11.97px;&#10;      }&#10;    </style>
   </defs>
   <g
      id="Layer_1-2"
