@@ -63,7 +63,7 @@
     const dataTheme = document.querySelectorAll('[data-theme]');
       for (var i = 0; i < dataTheme.length; i++) {
         dataTheme[i].setAttribute("data-theme", currentTheme);
-        console.log(dataTheme)
+        // console.log(dataTheme)
       }
 
 
@@ -83,7 +83,7 @@
       const dataTheme = document.querySelectorAll('[data-theme]');
       for (var i = 0; i < dataTheme.length; i++) {
         dataTheme[i].setAttribute("data-theme", 'dark');
-        console.log(dataTheme)
+        // console.log(dataTheme)
       }
       localStorage.setItem("theme", "dark");
     } else {
@@ -92,7 +92,7 @@
       for (var i = 0; i < dataTheme.length; i++) {
         dataTheme[i].setAttribute("data-theme", 'light');
         localStorage.setItem("theme", "light");
-        console.log(dataTheme)
+        // console.log(dataTheme)
       }
     }
   }
