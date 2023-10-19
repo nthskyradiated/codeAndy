@@ -8,7 +8,7 @@ const { title } = Astro.props;
 import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
 import Hamburger from '../components/Hamburger.astro';
-
+import '../styles/styles.scss'
 import '@fontsource/ubuntu';
 import '@fontsource/ubuntu-mono';
 ---
@@ -28,7 +28,7 @@ import '@fontsource/ubuntu-mono';
 	<body>
 		<Header title={'Debug the Mind Journals'} />
 		<Hamburger />
-		<div class="container">
+		<div class="blog-container">
 		<slot />
 		</div>
 		<Footer />
@@ -40,48 +40,3 @@ import '@fontsource/ubuntu-mono';
 <script>
 	import '../scripts/hamburger.js'
 </script>
-
-<style is:global lang='scss'>
-@import '../styles/_variables.scss';
-	*,*::before, *::after {
-		box-sizing: border-box; 
-		margin: 0; 
-		padding: 0;
-	}
-	html {
-		font-family: 'segoe UI', 'Ubuntu-mono', sans-serif;
-		background: $bg-primary-dark;
-		color: $bg-primary-light;
-	}
-	html[data-theme="light"] {
-    background: $bg-tertiary-light;
-    color: $bg-secondary-dark;
-	
-	}
-
-	html[data-theme="dark"] {
-	background: $bg-primary-dark;
-	color: $bg-secondary-light;
-
-	}
-	body {
-		min-height: 100vh;
-
-		footer {
-			position: sticky;
-  			top: 100%;
-		}
-}
-
-	.container {
-		width: 75%;
-		margin: 64px auto;
-		align-items: center;
-	}
-
-	/* stop body scrolling */
-.stop-scrolling {
-    overflow: hidden;
-}
-
-</style>
