@@ -1,15 +1,16 @@
 ---
-import home from '../images/home-darktheme.svg';
 import Layout from '../layouts/Layout.astro';
 import Sidebar from '../components/Sidebar.astro';
 import Hero from '../components/Hero.astro';
-
+import Home from '../components/SVGComponents/Home.astro';
 ---
 
 <Layout title="Debug the Mind | Home">
 	<div class="container">
 		<main>
-			<Hero title="~" body="...is where you (re)build it..." hasImage={true} image={home} />
+			<Hero title="~" body="...is where you (re)build it..." hasImage={true}>
+			<Home />
+			</Hero>	
 			<hr>
 			<section>
 				<h1> Welcome ~/</h1>

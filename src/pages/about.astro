@@ -3,8 +3,7 @@ import { Image } from 'astro:assets'
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
 import Card from '../components/Card.astro';
-import about from '../images/about.svg';
-import aboutdarktheme from '../images/about-darktheme.svg';
+import Climber from '../components/SVGComponents/Climber.astro';
 import pic from '../images/Andy.jpg';
 
 const description: string = "My interests include open-source, full-stack web development, and DevOps( basically breaking down stuff and piecing 2 and 2 together 🤣). I'm also into art and music, fitness, being outdoors and rock climbing! 🧗 I'm also a co-owner of a bouldering gym in the Philippines called Pump Factory."
@@ -14,7 +13,9 @@ const description: string = "My interests include open-source, full-stack web de
 <Layout title="Debug the Mind | About">
 	<div class="container">
 		<main>
-			<Hero title="~$ whoami" body="a brief intro about me..." hasImage={true} image={about}/>
+			<Hero title="~$ whoami" body="a brief intro about me..." hasImage={true}>
+			<Climber />
+			</Hero>
 			<hr>
 			<div class="profile-wrapper">
 				<Image class="image" src={pic} alt="why so serious?!"/>	

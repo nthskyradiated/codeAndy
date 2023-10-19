@@ -1,7 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import Button from "../../components/Button.astro"
-import laptop from '../../images/laptop-darktheme.svg';
+import Laptop from "../../components/SVGComponents/Laptop.astro";
 import Hero from "../../components/Hero.astro";
 import Layout from '../../layouts/Layout.astro';
 import Card from '../../components/Card.astro';
@@ -18,7 +18,9 @@ const { page } = Astro.props;
 <Layout title="Debug the Mind | Journals">
 	<div class="container">
 		<main>
-			<Hero title="~$ ls -al" body="...is where you (re)code it..." hasImage={true} image={laptop} />
+			<Hero title="~$ ls -al" body="...is where you (re)code it..." hasImage={true}>
+			<Laptop />
+			</Hero>
 			<hr>
 			<div class="section-wrapper-2">
 				<section class="blog-section">

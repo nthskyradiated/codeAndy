@@ -5,16 +5,15 @@ interface Props {
     title: string
     body?: string
     hasImage?: boolean
-    image?: ImageMetadata
 }
-const { title, body, hasImage = false, image } = Astro.props
+const { title, body, hasImage = false } = Astro.props
 const noImg = 'noImg'
 ---
 
 <section class="section-wrapper">
     <div class= {!hasImage as string && noImg } >
         <div class="image-wrapper">
-            {hasImage && <Image class="img" src={image as ImageMetadata} alt=""/>}
+            {hasImage && <slot />}
         </div>
         <div class= "container">
             <h1>{title}</h1>
