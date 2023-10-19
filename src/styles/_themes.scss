@@ -1,28 +1,39 @@
 @import './_variables.scss';
-
 :root {
-    $color-bg: $bg-tertiary-light;
-    $color-text: $bg-primary-dark;
-    $code: #f2f2f2;
-    $slider-bg: $bg-tertiary-light;
-    $slider-bg-before: $bg-secondary-light;
-    $slider-input-bg: #8758ff;
-  }
-  
-  [data-theme="light"] {
-    $color-bg: $bg-tertiary-light;
-    $color-text: $bg-primary-dark;
-    $code: #f2f2f2;
-    $slider-bg: $bg-tertiary-light;
-    $slider-bg-before: $bg-secondary-light;
-    $slider-input-bg: #8758ff;
-  }
-  
-  [data-theme="dark"] {
-    $color-bg: $bg-primary-dark;
-    $color-text: $bg-tertiary-light;
-    $code: #f2f2f2;
-  }
+  --color-bg: #f2f2f2;
+  --color-text: #444444;
+  --bold-text: #222;
+  --nav-text: #000000;
+  --code: #f2f2f2;
+  --block-quote-border: #999;
+  --block-quote-text: #222;
+  --slider-bg: #dddddd;
+  --slider-bg-before: #fff;
+  --slider-input-bg: #8758ff;
+}
+
+[data-theme="light"] {
+  --color-bg: #f2f2f2;
+  --color-text: #444444;
+  --bold-text: #222;
+  --nav-text: #000000;
+  --code: #f2f2f2;
+  --block-quote-border: #999;
+  --block-quote-text: #222;
+  --slider-bg: #dddddd;
+  --slider-bg-before: #fff;
+  --slider-input-bg: #8758ff;
+}
+
+[data-theme="dark"] {
+  --color-bg: #000;
+  --color-text: #dddddd;
+  --bold-text: #eeeeee;
+  --nav-text: #dddddd;
+  --code: #f2f2f2;
+  --block-quote-border: #8e32dc;
+  --block-quote-text: #dddddd;
+}
 
 
   /* TOGGLE  */
