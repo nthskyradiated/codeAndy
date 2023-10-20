@@ -1,44 +1,29 @@
 ---
 isDraft: false
-title: Exploring the Latest JavaScript Technology
-excerpt: "JavaScript is in a constant state of evolution, and 2023 brings a wave of exciting new features and trends. Join us as we journey"
-slug: exploring-the-latest-javascript-technology
-publishDate: 2023-09-23
-author: John Doe
-tags: [Javascript, Web Development, Technology]
-sortOrder: 2
+title: Rebuilding My Website from the Ground Up
+excerpt: "I have finally decided to rebuild my old website with Astro."
+slug: rebuilding-my-website-from-the-ground-up
+publishDate: 2023-10-20
+author: AndyP
+tags: [Web Development, Astro]
+sortOrder: 1
 ---
 
-# Exploring the Latest JavaScript Technology
+# Rebuilding My Website from the Ground Up
+\
+I've been contemplating a complete overhaul of my old website for quite a while, but I never quite got around to it. The whole endeavor felt rather daunting. I kept convincing myself that's what social media platforms are for – a convenient way to share content with others.\
+\
+It wasn't until I ventured into a new business with friends: a climbing gym(more on that in a future post...), that the idea of revamping my website resurfaced. Given that our gym is just getting off the ground, we're carefully considering how to make the most of our limited capital.\
+\
+That's when it hit me – why not create the gym's website as well? It seemed like an exciting project. As I delved into planning, I couldn't help but revisit the notion of updating my own site. The real challenge, however, isn't the technical aspect of building it; it's figuring out what content to include that's proving to be a bit tricky. 🤣
+While I've worked on front-end sites in the past, they were usually based on client requirements that I didn't particularly care about.
+\
+<br/>
 
-JavaScript continues to evolve, and in this blog post, we'll dive into the exciting new features and trends that are shaping the JavaScript landscape in 2023.
+## Looking for the right toolkit for the job. Hello Houston!
+\
+I was initially considering of using Nextjs but I figured that it would be too tedious not only for the initial setup, but also for future maintenance.
 
-## New JavaScript Features
+In the end, I settled on Astro, as I only need a few pages for my site. I'm drawn to the elegance and simplicity of Astro's framework. It feels like a return to a simpler time in web development. I appreciate how it automatically generates routes for each page and its intuitive, component-based architecture. The ViewTransition, though, strikes me as a bit unwieldy, although that's more a characteristic of the API in general, not just Astro.
 
-### 1. Async/Await Everywhere
-
-With the widespread adoption of `async/await`, JavaScript developers can now write cleaner and more maintainable asynchronous code. We'll explore how this feature simplifies working with promises and improves error handling.
-
-### 2. ES Modules in Node.js
-
-Node.js has finally added native support for ES modules, making it easier to organize and share code between client-side and server-side JavaScript projects. We'll discuss the benefits and best practices for using ES modules in Node.js.
-
-### 3. WebAssembly and JavaScript Integration
-
-WebAssembly (Wasm) is gaining momentum as a way to run high-performance code in web applications. We'll look at how JavaScript and WebAssembly can work together to unlock new possibilities for web development.
-
-## JavaScript Frameworks and Libraries
-
-### 1. The Rise of Svelte
-
-Svelte has emerged as a compelling alternative to popular JavaScript frameworks like React and Vue. We'll explore what makes Svelte unique and why developers are embracing it.
-
-### 2. Blazing-Fast Web Apps with Vite
-
-Vite is changing the game when it comes to frontend development tooling. We'll discuss how Vite's lightning-fast development server and build system are revolutionizing the way we build web applications.
-
-## Stay Updated
-
-As the JavaScript ecosystem continues to evolve, staying up-to-date with the latest trends and technologies is essential for developers. Follow our blog for more updates and in-depth articles on JavaScript and web development.
-
-Happy coding!
+Now that my site is back online, I'm planning to stick with Astro for a while. I'll also be using it to build the gym's website. Exciting times ahead!
