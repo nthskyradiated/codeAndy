@@ -3,7 +3,7 @@ import '../styles/_themeToggle.scss'
 ---
 <div class="theme-switch-wrapper">
   <label class="theme-switch" for="checkbox">
-    <input type="checkbox" id="checkbox" />
+    <input type="checkbox" id="checkbox" transition:persist/>
     <div class="slider">
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -56,6 +56,7 @@ import '../styles/_themeToggle.scss'
   const themeToggle = document.querySelector(
     '.theme-switch input[type="checkbox"]'
   );
+ 
   function setTheme(currentTheme) {
   const dataTheme = document.querySelectorAll('[data-theme]');
   for (var i = 0; i < dataTheme.length; i++) {
@@ -63,6 +64,7 @@ import '../styles/_themeToggle.scss'
 
       }
 }
+
   // Get the current theme from local storage
   const currentTheme = localStorage.getItem("theme");
   // If the current local storage item can be found
@@ -70,14 +72,12 @@ import '../styles/_themeToggle.scss'
     // Set the body data-theme attribute to match the local storage item
     document.documentElement.setAttribute("data-theme", currentTheme);
     setTheme(currentTheme);
-
-
+    document.addEventListener("astro:after-swap", () => setTheme(currentTheme));
     // If the current theme is dark, check the theme toggle
     if (currentTheme === "dark") {
       themeToggle.checked = true;
     }
   }
-
   // Function that will switch the theme based on the if the theme toggle is checked or not
   function switchTheme(e) {
 
@@ -86,17 +86,22 @@ import '../styles/_themeToggle.scss'
 
       document.documentElement.setAttribute("data-theme", "dark");
       setTheme('dark');
+      document.addEventListener("astro:after-swap", () => setTheme('dark'));
       localStorage.setItem("theme", "dark");
     } else {
       document.documentElement.setAttribute("data-theme", "light");
       setTheme('light')
-        localStorage.setItem("theme", "light");
+      document.addEventListener("astro:after-swap",() => setTheme('light'));
+      localStorage.setItem("theme", "light");
         // console.log(dataTheme)
       }
     }
   
 
   // Add an event listener to the theme toggle, which will switch the theme
-  themeToggle.addEventListener("change", switchTheme, true);
+  themeToggle.addEventListener("change", switchTheme);
+  // document.addEventListener("astro:after-swap", switchTheme);
+  // document.addEventListener("astro:after-swap", setTheme(currentTheme));
+
 
 </script>
