@@ -4,15 +4,20 @@
     box-sizing: border-box; 
     margin: 0; 
     padding: 0;
+    transition: .3s ease-in-out;
+
 }
 html {
     font-family: 'segoe UI', 'Ubuntu-mono', sans-serif;
     background: colors.$bg-primary-dark;
     color: colors.$bg-primary-light;
+    transition: .3s ease-in-out;
+
 }
 html[data-theme="light"] {
 background: colors.$bg-tertiary-light;
 color: colors.$bg-secondary-dark;
+transition: .3s ease-in-out;
 
     path.cls-1 {
         stroke: #0f0f0f;
@@ -41,6 +46,7 @@ color: colors.$bg-secondary-dark;
 html[data-theme="dark"] {
 background: colors.$bg-primary-dark;
 color: colors.$bg-secondary-light;
+transition: .3s ease-in-out;
     path.cls-1 {
         stroke: #dcdcdc;
         fill: #0f0f0f;
@@ -64,9 +70,11 @@ color: colors.$bg-secondary-light;
 
 body {
     min-height: 100vh;
+    padding-bottom: 64px;
+    position: relative;
     footer {
-        position: sticky;
-          top: 0%;
+        position: absolute;
+        bottom: 0;
     }
 }
 main {

@@ -2,17 +2,20 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  transition: 0.3s ease-in-out;
 }
 
 html {
   font-family: "segoe UI", "Ubuntu-mono", sans-serif;
   background: #0f0f0f;
   color: whitesmoke;
+  transition: 0.3s ease-in-out;
 }
 
 html[data-theme=light] {
   background: #dcdcdc;
   color: #282828;
+  transition: 0.3s ease-in-out;
 }
 html[data-theme=light] path.cls-1 {
   stroke: #0f0f0f;
@@ -38,6 +41,7 @@ html[data-theme=light] .st3 {
 html[data-theme=dark] {
   background: #0f0f0f;
   color: #e7e7e7;
+  transition: 0.3s ease-in-out;
 }
 html[data-theme=dark] path.cls-1 {
   stroke: #dcdcdc;
@@ -61,10 +65,12 @@ html[data-theme=dark] .st3 {
 
 body {
   min-height: 100vh;
+  padding-bottom: 64px;
+  position: relative;
 }
 body footer {
-  position: sticky;
-  top: 0%;
+  position: absolute;
+  bottom: 0;
 }
 
 main {
