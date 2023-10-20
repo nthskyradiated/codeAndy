@@ -1,4 +1,4 @@
-@import '_variables.scss';
+@use 'colors';
 
 *,*::before, *::after {
     box-sizing: border-box; 
@@ -7,12 +7,12 @@
 }
 html {
     font-family: 'segoe UI', 'Ubuntu-mono', sans-serif;
-    background: $bg-primary-dark;
-    color: $bg-primary-light;
+    background: colors.$bg-primary-dark;
+    color: colors.$bg-primary-light;
 }
 html[data-theme="light"] {
-background: $bg-tertiary-light;
-color: $bg-secondary-dark;
+background: colors.$bg-tertiary-light;
+color: colors.$bg-secondary-dark;
 
     path.cls-1 {
         stroke: #0f0f0f;
@@ -39,8 +39,8 @@ color: $bg-secondary-dark;
 }
 
 html[data-theme="dark"] {
-background: $bg-primary-dark;
-color: $bg-secondary-light;
+background: colors.$bg-primary-dark;
+color: colors.$bg-secondary-light;
     path.cls-1 {
         stroke: #dcdcdc;
         fill: #0f0f0f;

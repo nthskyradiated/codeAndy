@@ -19,9 +19,9 @@
 </footer>
 
 <style lang='scss'>
-    @import '../styles/_variables.scss';
+    @use '../styles/_colors.scss';
     footer {
-        background-color: $theme-red-2;
+        background-color: colors.$theme-red-2;
         width: 100%;
         padding: 8px 0;
     }
@@ -32,7 +32,7 @@
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        color: $theme-blue-1;
+        color: colors.$theme-blue-1;
     }
 
     .socials {
@@ -60,21 +60,21 @@
     }
 
     footer[data-theme='light'] {
-        background-color: $theme-blue-2;
+        background-color: colors.$theme-blue-2;
         .footer {
-            color: $theme-red-3;
+            color: colors.$theme-red-3;
         }
         a, a:visited {
-            color: $bg-tertiary-light
+            color: colors.$bg-tertiary-light
         }
     }
     footer[data-theme='dark'] {
-        background-color: $theme-red-2;
+        background-color: colors.$theme-red-2;
         .footer {
-            color: $theme-blue-1;
+            color: colors.$theme-blue-1;
         }
         a, a:visited {
-            color: $bg-tertiary-light
+            color: colors.$bg-tertiary-light
         }
     }
 
