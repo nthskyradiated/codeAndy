@@ -1,6 +1,6 @@
 ---
 import { Image } from 'astro:assets';
-
+import { fade, slide } from 'astro:transitions';
 interface Props {
     title: string
     body?: string
@@ -10,7 +10,7 @@ const { title, body, hasImage = false } = Astro.props
 const noImg = 'noImg'
 ---
 
-<section class="section-wrapper">
+<section class="section-wrapper" transition:animate={slide({ duration: '0.7s' })}>
     <div class= {!hasImage as string && noImg } >
         <div class="image-wrapper">
             {hasImage && <slot />}
@@ -23,7 +23,7 @@ const noImg = 'noImg'
 </section>
 
 <style lang='scss'>
-@import '../styles/_variables.scss';
+@use '../styles/_colors.scss';
     .section-wrapper {
         margin: 8% 0;
         width: auto;
@@ -46,7 +46,7 @@ const noImg = 'noImg'
         align-items: center;
         padding-bottom:24px;
         text-align: center;
-        color: $theme-green-2;
+        color: colors.$theme-green-2;
         line-height: 2.4rem;
     }
 

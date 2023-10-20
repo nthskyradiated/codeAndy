@@ -1,5 +1,5 @@
 ---
-
+import { Icon } from 'astro-iconify'
 ---
 
 <footer data-theme="">
@@ -8,9 +8,9 @@
         <span>Copyright &copy; 2023 All Rights Reserved</span>
         <div class="socials">
         <ul>
-            <li><a href="https://www.facebook.com/nthskyradiated" target="blank"><i class="fa-brands fa-facebook icons"></i></a></li>
-            <li><a href="https://www.instagram.com/radiatednthsky/" target="blank"><i class="fa-brands fa-instagram icons"></i></a></li>
-            <li><a href="https://github.com/nthskyradiated" target="blank"><i class="fa-brands fa-github icons"></i></a></li>
+            <li><a href="https://www.facebook.com/nthskyradiated" target="blank"><Icon name="bxl:facebook-circle" /></a></li>
+            <li><a href="https://www.instagram.com/radiatednthsky/" target="blank"><Icon name="bxl:instagram" /></a></li>
+            <li><a href="https://github.com/nthskyradiated" target="blank"><Icon name="bxl:github" /></i></a></li>
 
         </ul>
     </div>
@@ -19,9 +19,9 @@
 </footer>
 
 <style lang='scss'>
-    @import '../styles/_variables.scss';
+    @use '../styles/_colors.scss';
     footer {
-        background-color: $theme-red-2;
+        background-color: colors.$theme-red-2;
         width: 100%;
         padding: 8px 0;
     }
@@ -32,7 +32,7 @@
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        color: $theme-blue-1;
+        color: colors.$theme-blue-1;
     }
 
     .socials {
@@ -49,6 +49,10 @@
     li {
         list-style: none;
         margin-right: 32px;
+        svg {
+            height: 24px;
+            bottom: 12px;
+        }
         a {
             color: whitesmoke;
             font-size: x-large;
@@ -60,21 +64,21 @@
     }
 
     footer[data-theme='light'] {
-        background-color: $theme-blue-2;
+        background-color: colors.$theme-blue-2;
         .footer {
-            color: $theme-red-3;
+            color: colors.$theme-red-3;
         }
         a, a:visited {
-            color: $bg-tertiary-light
+            color: colors.$bg-tertiary-light
         }
     }
     footer[data-theme='dark'] {
-        background-color: $theme-red-2;
+        background-color: colors.$theme-red-2;
         .footer {
-            color: $theme-blue-1;
+            color: colors.$theme-blue-1;
         }
         a, a:visited {
-            color: $bg-tertiary-light
+            color: colors.$bg-tertiary-light
         }
     }
 

@@ -1,0 +1,91 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: "segoe UI", "Ubuntu-mono", sans-serif;
+  background: #0f0f0f;
+  color: whitesmoke;
+}
+
+html[data-theme=light] {
+  background: #dcdcdc;
+  color: #282828;
+}
+html[data-theme=light] path.cls-1 {
+  stroke: #0f0f0f;
+  fill: #dcdcdc;
+}
+html[data-theme=light] .st0 {
+  fill: #dcdcdc;
+}
+html[data-theme=light] .st1 {
+  fill: none;
+  stroke: #0f0f0f;
+}
+html[data-theme=light] .st2 {
+  fill: none;
+  stroke: #0f0f0f;
+  stroke-width: 7;
+}
+html[data-theme=light] .st3 {
+  fill: #0f0f0f;
+  stroke: #0f0f0f;
+}
+
+html[data-theme=dark] {
+  background: #0f0f0f;
+  color: #e7e7e7;
+}
+html[data-theme=dark] path.cls-1 {
+  stroke: #dcdcdc;
+  fill: #0f0f0f;
+}
+html[data-theme=dark] .st0 {
+  fill: #0f0f0f;
+}
+html[data-theme=dark] .st1 {
+  fill: none;
+  stroke: #dcdcdc;
+}
+html[data-theme=dark] .st2 {
+  fill: none;
+  stroke: #dcdcdc;
+}
+html[data-theme=dark] .st3 {
+  fill: #dcdcdc;
+  stroke: #dcdcdc;
+}
+
+body {
+  min-height: 100vh;
+}
+body footer {
+  position: sticky;
+  top: 0%;
+}
+
+main {
+  padding: auto;
+  margin: 0 10%;
+  width: 75%;
+  line-height: 2em;
+  margin-bottom: 64px;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+/* stop body scrolling */
+.stop-scrolling {
+  overflow: hidden;
+}
+
+.blog-container {
+  width: 75%;
+  margin: 64px auto;
+  align-items: center;
+}/*# sourceMappingURL=styles.css.map */

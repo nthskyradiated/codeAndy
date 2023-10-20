@@ -20,11 +20,11 @@ const {sideTitle} = Astro.props
         </aside>
     </div>
 <style lang='scss'>
-@import '../styles/_variables.scss';
+@use '../styles/_colors.scss';
     aside {
         
         width: 25%;
-        background-color: $theme-red-1;
+        background-color: colors.$theme-red-1;
         color: whitesmoke;
     }
     .container {
@@ -59,10 +59,10 @@ const {sideTitle} = Astro.props
         }
     }
     aside[data-theme='light'] {
-        background-color: $theme-blue-1;
+        background-color: colors.$theme-blue-1;
     }
     aside[data-theme='dark'] {
-        background-color: $theme-red-1;
+        background-color: colors.$theme-red-1;
     }
 
     @media (max-width: 768px) {

@@ -18,6 +18,7 @@
     "@fontsource/ubuntu": "^5.0.8",
     "@fontsource/ubuntu-mono": "^5.0.15",
     "astro": "^3.3.0",
+    "astro-iconify": "^1.2.0",
     "sass": "^1.69.3"
   },
   "description": "```sh\r npm create astro@latest -- --template basics\r ```",

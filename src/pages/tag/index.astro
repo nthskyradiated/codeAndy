@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import BlogLayout from "../../layouts/BlogLayout.astro";
 import RandomEmoji from "../../components/RandomEmoji.astro"
+import '../../styles/styles.scss'
 const allPosts = await getCollection("blog");
 const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())];
 const pageTitle = "Tag Index";
@@ -16,7 +17,7 @@ const pageTitle = "Tag Index";
 </BlogLayout>
 
   <style lang='scss'>
-    @import '../../styles/_variables.scss';
+    @use '../../styles/_colors.scss';
         li {
           list-style: none;
           text-align: left;
@@ -25,30 +26,30 @@ const pageTitle = "Tag Index";
     
       a, a:visited{
         text-decoration: none;
-		    color: $bg-secondary-light;
+		    color: colors.$bg-secondary-light;
         font-size: large;
         &:hover {
             opacity: .65;
         }
         }
         h1 {
-        color: $bg-secondary-light;
+        color: colors.$bg-secondary-light;
         line-height: 2.5rem;
         padding-bottom: 32px;
         }
 
         html[data-theme='light'] h1{
-         color: $bg-secondary-dark;
+         color: colors.$bg-secondary-dark;
         
         } 
         a[data-theme='light'], a:visited[data-theme-='light'] {
-          color: $bg-secondary-dark;
+          color: colors.$bg-secondary-dark;
          }
         html[data-theme='dark'] h1{
-         color: $bg-secondary-light;
+         color: colors.$bg-secondary-light;
         
         } 
         a[data-theme='dark'], a:visited[data-theme-='dark'] {
-          color: $bg-secondary-light;
+          color: colors.$bg-secondary-light;
          }
   </style>

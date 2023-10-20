@@ -1,0 +1,93 @@
+@use 'colors';
+
+*,*::before, *::after {
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0;
+}
+html {
+    font-family: 'segoe UI', 'Ubuntu-mono', sans-serif;
+    background: colors.$bg-primary-dark;
+    color: colors.$bg-primary-light;
+}
+html[data-theme="light"] {
+background: colors.$bg-tertiary-light;
+color: colors.$bg-secondary-dark;
+
+    path.cls-1 {
+        stroke: #0f0f0f;
+        fill: #dcdcdc;
+    }
+    .st0 {
+        fill:#dcdcdc;
+    }
+    .st1 {
+        fill:none;
+    stroke:#0f0f0f;
+
+    }
+    .st2 {
+        fill:none;
+        stroke:#0f0f0f;
+        stroke-width:7;
+    }
+
+    .st3 {
+        fill:#0f0f0f;
+        stroke:#0f0f0f;
+    }
+}
+
+html[data-theme="dark"] {
+background: colors.$bg-primary-dark;
+color: colors.$bg-secondary-light;
+    path.cls-1 {
+        stroke: #dcdcdc;
+        fill: #0f0f0f;
+    }
+    .st0{fill:#0f0f0f;
+    }
+    .st1{fill:none;
+        stroke:#dcdcdc;
+    
+    }
+    .st2{fill:none;
+        stroke:#dcdcdc;
+    
+    
+    }
+    .st3{fill:#dcdcdc;
+        stroke:#dcdcdc;
+    
+    }
+}
+
+body {
+    min-height: 100vh;
+    footer {
+        position: sticky;
+          top: 0%;
+    }
+}
+main {
+    padding: auto;
+    margin: 0 10%;
+    width: 75%;
+    line-height: 2em;
+    margin-bottom: 64px;
+}
+
+a:visited {
+text-decoration: none;
+}
+/* stop body scrolling */
+.stop-scrolling {
+overflow: hidden;
+}
+
+.blog-container {
+    width: 75%;
+    margin: 64px auto;
+    align-items: center;
+}
+

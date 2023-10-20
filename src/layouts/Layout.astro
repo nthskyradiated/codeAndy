@@ -8,20 +8,21 @@ const { title } = Astro.props;
 import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
 import Hamburger from '../components/Hamburger.astro';
+import { ViewTransitions } from 'astro:transitions';
 import '@fontsource/ubuntu';
 import '@fontsource/ubuntu-mono';
+import '../styles/styles.scss'
 ---
 
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content="Code and Y Website" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" type="image/svg" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
-		<script is:inline src="https://kit.fontawesome.com/72852e9073.js" crossorigin="anonymous"></script>
-		<!-- <ViewTransitions /> -->
+		<ViewTransitions />
 		<title>{title}</title>
 
 		</head>
@@ -36,92 +37,4 @@ import '@fontsource/ubuntu-mono';
 <script>
 	import '../scripts/hamburger.js'
 </script>
-<style is:global lang='scss'>
-@import '../styles/_variables.scss';
 
-	*,*::before, *::after {
-		box-sizing: border-box; 
-		margin: 0; 
-		padding: 0;
-	}
-	html[data-theme="light"] {
-    background: $bg-tertiary-light;
-    color: $bg-secondary-dark;
-
-		path.cls-1 {
-			stroke: #0f0f0f;
-			fill: #dcdcdc;
-		}
-		.st0 {
-			fill:#dcdcdc;
-    	}
-		.st1 {
-			fill:none;
-        stroke:#0f0f0f;
-
-    	}
-		.st2 {
-			fill:none;
-        	stroke:#0f0f0f;
-        	stroke-width:7;
-    	}
-
-		.st3 {
-			fill:#0f0f0f;
-        	stroke:#0f0f0f;
-	    }
-	}
-
-	html[data-theme="dark"] {
-	background: $bg-primary-dark;
-	color: $bg-secondary-light;
-		path.cls-1 {
-			stroke: #dcdcdc;
-    		fill: #0f0f0f;
-		}
-		.st0{fill:#0f0f0f;
-    	}
-		.st1{fill:none;
-    	    stroke:#dcdcdc;
-		
-    	}
-		.st2{fill:none;
-    	    stroke:#dcdcdc;
-		
-		
-    	}
-		.st3{fill:#dcdcdc;
-    	    stroke:#dcdcdc;
-		
-    	}
-	}
-	html {
-		font-family: 'segoe UI', 'Ubuntu-mono', sans-serif;
-		background: $bg-tertiary-light;
-		color: $bg-secondary-dark;
-	}
-	
-	body {
-		min-height: 100vh;
-		footer {
-			position: sticky;
-  			top: 0%;
-		}
-}
-	main {
-		padding: auto;
-		margin: 0 10%;
-		width: 75%;
-		line-height: 2em;
-		margin-bottom: 64px;
-	}
-
-	a:visited {
-	text-decoration: none;
- }
-	/* stop body scrolling */
-.stop-scrolling {
-    overflow: hidden;
-}
-
-</style>

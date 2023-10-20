@@ -8,27 +8,26 @@ const { title } = Astro.props;
 import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
 import Hamburger from '../components/Hamburger.astro';
-
+import '../styles/styles.scss'
 import '@fontsource/ubuntu';
 import '@fontsource/ubuntu-mono';
 ---
 
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content="Code and Y Website" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" type="image/svg" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
-		<script is:inline src="https://kit.fontawesome.com/72852e9073.js" crossorigin="anonymous"></script>
 		<title>{title}</title>
 
 		</head>
 	<body>
 		<Header title={'Debug the Mind Journals'} />
 		<Hamburger />
-		<div class="container">
+		<div class="blog-container">
 		<slot />
 		</div>
 		<Footer />
@@ -40,48 +39,3 @@ import '@fontsource/ubuntu-mono';
 <script>
 	import '../scripts/hamburger.js'
 </script>
-
-<style is:global lang='scss'>
-@import '../styles/_variables.scss';
-	*,*::before, *::after {
-		box-sizing: border-box; 
-		margin: 0; 
-		padding: 0;
-	}
-	html {
-		font-family: 'segoe UI', 'Ubuntu-mono', sans-serif;
-		background: $bg-primary-dark;
-		color: $bg-primary-light;
-	}
-	html[data-theme="light"] {
-    background: $bg-tertiary-light;
-    color: $bg-secondary-dark;
-	
-	}
-
-	html[data-theme="dark"] {
-	background: $bg-primary-dark;
-	color: $bg-secondary-light;
-
-	}
-	body {
-		min-height: 100vh;
-
-		footer {
-			position: sticky;
-  			top: 100%;
-		}
-}
-
-	.container {
-		width: 75%;
-		margin: 64px auto;
-		align-items: center;
-	}
-
-	/* stop body scrolling */
-.stop-scrolling {
-    overflow: hidden;
-}
-
-</style>
