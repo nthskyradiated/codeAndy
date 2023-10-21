@@ -4,7 +4,7 @@
     box-sizing: border-box; 
     margin: 0; 
     padding: 0;
-    transition: .3s ease-in-out;
+    // transition: .3s ease-in-out;
 
 }
 html {
@@ -12,6 +12,7 @@ html {
     background: colors.$bg-primary-dark;
     color: colors.$bg-primary-light;
     transition: .3s ease-in-out;
+
 
 }
 html[data-theme="light"] {
