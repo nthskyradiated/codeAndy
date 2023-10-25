@@ -11,7 +11,7 @@ import Hamburger from '../components/Hamburger.astro';
 import '../styles/styles.scss'
 import '@fontsource/ubuntu';
 import '@fontsource/ubuntu-mono';
-// import { ViewTransitions } from 'astro:transitions';
+import { ViewTransitions } from 'astro:transitions';
 ---
 
 <!doctype html>
@@ -22,13 +22,13 @@ import '@fontsource/ubuntu-mono';
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
-		<!-- <ViewTransitions /> -->
+		<ViewTransitions />
 		<title>{title}</title>
 
 		</head>
 	<body>
 		<Header title={'Debug the Mind Journals'}/>
-		<Hamburger />
+		<Hamburger transition:persist/>
 		<div class="blog-container">
 		<slot />
 		</div>
