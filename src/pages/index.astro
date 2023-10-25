@@ -3,6 +3,8 @@ import Layout from '../layouts/Layout.astro';
 import Sidebar from '../components/Sidebar.astro';
 import Hero from '../components/Hero.astro';
 import Home from '../components/SVGComponents/Home.astro';
+const quote = await fetch('https://api.quotable.io/quotes/random')
+			.then(res => res.json())
 ---
 
 <Layout title="Debug the Mind | Home">
@@ -19,6 +21,9 @@ import Home from '../components/SVGComponents/Home.astro';
 					This website is where I journal things I am mostly interested about (and I have lots of stuff I am interested about! 🤪). I explore thoughts, break down concepts, deconstruct ideas, and put them back together into bite-sized nuggets of wisdom! Or just write whatever I feel like writing.</p>
 				<p>Please check out the About section of the site for more info about me.</p>
 			</section>
+
+			{quote.map( q => <p style="font-style:italic">&#10077; {q.content} &#10080;</p>
+			<small >~{q.author}</small>)}
 		</main>
 		<Sidebar sideTitle={'Tags On Posts'} />
 	</div>
@@ -29,9 +34,9 @@ import Home from '../components/SVGComponents/Home.astro';
 	display: flex;
 	flex-direction: row;
 }
-// section {
-// 	margin-bottom: 64px;
-// }
+section {
+	margin-bottom: 64px;
+}
 section h1{
 	margin: 16px 0;
 }
