@@ -57,7 +57,7 @@ import '../styles/_themeToggle.scss'
     '.theme-switch input[type="checkbox"]'
   );
  
-  function setTheme(currentTheme) {
+  function setTheme(currentTheme:string) {
   const dataTheme = document.querySelectorAll('[data-theme]');
   for (var i = 0; i < dataTheme.length; i++) {
     dataTheme[i].setAttribute("data-theme", currentTheme);
@@ -75,14 +75,14 @@ import '../styles/_themeToggle.scss'
     document.addEventListener("astro:after-swap", () => setTheme(currentTheme));
     // If the current theme is dark, check the theme toggle
     if (currentTheme === "dark") {
-      themeToggle.checked = true;
+      themeToggle!.checked = true;
     }
   }
   // Function that will switch the theme based on the if the theme toggle is checked or not
-  function switchTheme(e) {
+  function switchTheme(e:Event) {
 
     
-    if (e.target.checked) {
+    if (e.target!.checked ) {
 
       document.documentElement.setAttribute("data-theme", "dark");
       setTheme('dark');
@@ -99,7 +99,7 @@ import '../styles/_themeToggle.scss'
   
 
   // Add an event listener to the theme toggle, which will switch the theme
-  themeToggle.addEventListener("change", switchTheme);
+  themeToggle!.addEventListener("change", switchTheme);
   // document.addEventListener("astro:after-swap", switchTheme);
   // document.addEventListener("astro:after-swap", setTheme(currentTheme));
 

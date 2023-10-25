@@ -22,7 +22,7 @@ const quote = await fetch('https://api.quotable.io/quotes/random')
 				<p>Please check out the About section of the site for more info about me.</p>
 			</section>
 
-			{quote.map( q => <p style="font-style:italic">&#10077; {q.content} &#10080;</p>
+			{quote.map( (q:any) => <p style="font-style:italic">&#10077; {q.content} &#10080;</p>
 			<small >~{q.author}</small>)}
 		</main>
 		<Sidebar sideTitle={'Tags On Posts'} />
