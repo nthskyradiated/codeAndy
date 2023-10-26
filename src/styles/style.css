@@ -6,13 +6,13 @@
 
 html {
   font-family: "segoe UI", "Ubuntu-mono", sans-serif;
-  background: #0f0f0f;
-  color: whitesmoke;
+  background: #282828;
+  color: #e7e7e7;
   transition: 0.3s ease-in-out;
 }
 
 html[data-theme=light] {
-  background: #dcdcdc;
+  background: #e7e7e7;
   color: #282828;
   transition: 0.3s ease-in-out;
 }
@@ -38,7 +38,7 @@ html[data-theme=light] .st3 {
 }
 
 html[data-theme=dark] {
-  background: #0f0f0f;
+  background: #282828;
   color: #e7e7e7;
   transition: 0.3s ease-in-out;
 }

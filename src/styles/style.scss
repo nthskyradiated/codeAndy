@@ -10,15 +10,15 @@
 }
 html {
     font-family: 'segoe UI', 'Ubuntu-mono', sans-serif;
-    background: $bg-primary-dark;
-    color: $bg-primary-light;
+    background: $secondary-dark;
+    color: $secondary-light;
     transition: .3s ease-in-out;
 
 
 }
 html[data-theme="light"] {
-background: $bg-tertiary-light;
-color: $bg-secondary-dark;
+background: $secondary-light;
+color: $secondary-dark;
 transition: .3s ease-in-out;
 
     path.cls-1 {
@@ -46,8 +46,8 @@ transition: .3s ease-in-out;
 }
 
 html[data-theme="dark"] {
-background: $bg-primary-dark;
-color: $bg-secondary-light;
+background: $secondary-dark;
+color: $secondary-light;
 transition: .3s ease-in-out;
     path.cls-1 {
         stroke: #dcdcdc;

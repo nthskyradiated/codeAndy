@@ -1,15 +1,12 @@
 @use 'sass:list';
 
-$text-primary-dark: #333; 
-$text-primary-light: #f1f1f1;
+$primary-light: #f1f1f1;
+$primary-dark: #0f0f0f; 
+$secondary-light: #e7e7e7;
+$secondary-dark: #282828;
+$tertiary-light: #dcdcdc;
+$tertiary-dark: #333;
 
-$bg-primary-dark: #0f0f0f;
-$bg-secondary-dark: #282828;
-$bg-tertiary-dark: dimgray;
-
-$bg-primary-light: whitesmoke;
-$bg-secondary-light: #e7e7e7;
-$bg-tertiary-light: #dcdcdc;
 
 $theme-blue-1: #2c3863;
 $theme-blue-2: #1d2951;
@@ -23,7 +20,16 @@ $theme-green-1: #01796F;
 $theme-green-2: #00A693;
 $theme-green-3: #50C878;
 
-$accent: rgb(120, 164, 171);
-$accent-light: rgb(176, 199, 202);
-$accent-dark: rgb(233, 236, 231);
-$accent-gradient: linear-gradient( 60deg,$theme-blue-3, $bg-secondary-light,);
+
+$theme-color-1: #fec979;
+$theme-color-2: #ff8389;
+$theme-color-3: #f1379a;
+$theme-color-4: #567d9a;
+$theme-color-5: #452286;
+$theme-color-6: #ef5f75;
+
+$accent: $theme-color-6;
+$accent-light: $theme-color-2;
+$accent-dark: $theme-color-5;
+$colors: $accent-dark $accent $accent-light;
+$direction: -60deg;
