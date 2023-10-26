@@ -11,7 +11,7 @@ interface Props {
 const { href, title, body, author, date, subtitle } = Astro.props;
 ---
 
-<li class="link-card">
+<li class="link-card" data-theme="">
 	<a href={href}>
 		<h2>
 			{title}
@@ -34,7 +34,7 @@ const { href, title, body, author, date, subtitle } = Astro.props;
 		/* padding: 8px; */
 		background-color: $primary-dark;
 		color: $secondary-light;
-		opacity: .7;
+		opacity: .85;
 		background-image: none;
 		background-size: 100%;
 		border-radius: 10px;
@@ -69,5 +69,14 @@ const { href, title, body, author, date, subtitle } = Astro.props;
 	.link-card:is(:hover, :focus-within) h2 {
 		// background: $accent-gradient;
 
+	}
+
+	li[data-theme='dark']{
+		background-color: $secondary-dark;
+		color: $secondary-light;
+	}
+	li[data-theme='light']{
+		background-color: $primary-dark;
+		color: $tertiary-light;
 	}
 </style>

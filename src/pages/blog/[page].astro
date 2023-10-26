@@ -31,7 +31,7 @@ const { page } = Astro.props;
 				</section>
 			</div>
 			<nav>
-				{page.url.prev && <Button title="Previous" href={page.url.prev}/>} {page.url.next && <Button title="Next" href={page.url.next}/>}
+				{page.url.prev && <Button title="❮ Prev" href={page.url.prev}/>} {page.url.next && <Button title="Next ❯" href={page.url.next}/>}
 			</nav>
 		</main>
 	</div>
@@ -52,8 +52,9 @@ const { page } = Astro.props;
 
 nav {
 	display: flex;
-	justify-content: space-evenly;
+	justify-content: center;
 	align-items: center;
+	gap: 24px;
 
 }
 section {

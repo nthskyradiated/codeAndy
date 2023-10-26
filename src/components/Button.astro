@@ -7,65 +7,63 @@ interface Props {
 const { title, href } = Astro.props
 ---
 
-<button type="button" class="btn-74"><a href={href}>{title}</a></button>
+<button type="button" class="btn" data-theme=""><a href={href}>{title}</a></button>
 
 <style lang='scss'>
 @use '../styles/variables' as *;
-.btn-74,
-.btn-74 *,
-.btn-74 :after,
-.btn-74 :before,
-.btn-74:after,
-.btn-74:before,
-.btn-74 {
-  border: 0 solid;
-  box-sizing: border-box;
-}
-.btn-74 a {
-  color: $secondary-light;
-  opacity: .6;
-  text-decoration: none;
-}
-.btn-74 {
-  -webkit-tap-highlight-color: transparent;
-  background-color: $tertiary-dark;
-  background-image: none;
-  color: $primary-dark;
-  cursor: pointer;
-  font-family: ui-sans-serif, system-ui;
-  font-size: 90%;
-  line-height: 1;
-  margin: 0;
-  text-align: center;
-  -webkit-mask-image: -webkit-radial-gradient(#000, dimgray);
-  padding: 0;
+	.btn {
+		padding: 12px;
+		background-color: $primary-dark;
+		opacity: .9;
+		border-radius: 10px;
+		// transition: background-position 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+		box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.1);
+    &:hover {
+      background-color: $tertiary-dark;
+      transition: .2s ease-in-out;
+    }
+    a{
+      width: auto;
+      text-decoration: none;
+      font-weight: 800;
+      line-height: 1.4;
+      padding: calc(1.5rem - 1px);
+      color: $theme-green-3;
+      // opacity: 0.9;
+      &:hover {
+      color: $theme-green-2;
+      transition: .2s ease-in-out;
+    }
+	}
 }
 
-.btn-74:-moz-focusring {
-  outline: auto;
+button[data-theme='light'] {
+  background-color: $primary-dark;
+		opacity: .9;
+    &:hover {
+      background-color: $tertiary-dark;
+    }
+  a {
+    color: $theme-green-3;
+    &:hover {
+      color: $theme-green-2;
+      transition: .2s ease-in-out;
+    }
+  }
 }
-
-.btn-74 {
-  background: $secondary-dark;
-  border-radius: 16px;
-  box-shadow: inset 0 0 0 5px dimgray transparent;
-  box-sizing: border-box;
-  color: #555;
-  display: block;
-  // filter: drop-shadow(1px 1px 1px rgb(183, 177, 181))
-  //   drop-shadow(-.5px -.5px 1px $bg-tertiary-dark);
-  font-weight: 900;
-  -webkit-mask-image: none;
-  overflow: hidden;
-  padding: 8px 24px;
-  position: relative;
-  text-transform: uppercase;
-  transition: 0.2s;
-  width: auto;
+button[data-theme='dark'] {
+  background-color: $secondary-dark;
+		opacity: .8;
+    &:hover {
+      background-color: $primary-dark;
+      opacity: .75;
+    }
+  a {
+    color: $theme-green-3;
+    &:hover {
+      color: $theme-green-2;
+      transition: .2s ease-in-out;
+    }
+  }
 }
-// .btn-74:active {
-//   box-shadow: inset 0 0 0 5px #999;
-//   filter: drop-shadow(0 0 0 rgb(183, 177, 181));
-// }
-
 </style>
