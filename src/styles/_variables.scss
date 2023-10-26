@@ -23,13 +23,7 @@ $theme-green-1: #01796F;
 $theme-green-2: #00A693;
 $theme-green-3: #50C878;
 
-    $accent: rgb(120, 164, 171);
-    $accent-light: rgb(176, 199, 202);
-    $accent-dark: rgb(233, 236, 231);
-    $accent-gradient: linear-gradient( 60deg, $theme-blue-3, $bg-secondary-light,);
-
-
-
-    // @mixin accent-gradient($direction, $colors) {
-    //     background-image: linear-gradient($direction: 45deg, $accent, rgba ($accent-light, 10%), dimgray 75%)
-    // }
+$accent: rgb(120, 164, 171);
+$accent-light: rgb(176, 199, 202);
+$accent-dark: rgb(233, 236, 231);
+$accent-gradient: linear-gradient( 60deg,$theme-blue-3, $bg-secondary-light,);

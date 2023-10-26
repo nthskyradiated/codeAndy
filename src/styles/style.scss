@@ -1,4 +1,5 @@
-@use 'colors';
+@forward './mixins';
+@use 'variables' as *;
 
 *,*::before, *::after {
     box-sizing: border-box; 
@@ -9,15 +10,15 @@
 }
 html {
     font-family: 'segoe UI', 'Ubuntu-mono', sans-serif;
-    background: colors.$bg-primary-dark;
-    color: colors.$bg-primary-light;
+    background: $bg-primary-dark;
+    color: $bg-primary-light;
     transition: .3s ease-in-out;
 
 
 }
 html[data-theme="light"] {
-background: colors.$bg-tertiary-light;
-color: colors.$bg-secondary-dark;
+background: $bg-tertiary-light;
+color: $bg-secondary-dark;
 transition: .3s ease-in-out;
 
     path.cls-1 {
@@ -45,8 +46,8 @@ transition: .3s ease-in-out;
 }
 
 html[data-theme="dark"] {
-background: colors.$bg-primary-dark;
-color: colors.$bg-secondary-light;
+background: $bg-primary-dark;
+color: $bg-secondary-light;
 transition: .3s ease-in-out;
     path.cls-1 {
         stroke: #dcdcdc;

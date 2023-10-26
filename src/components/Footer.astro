@@ -19,9 +19,9 @@ import { Icon } from 'astro-iconify'
 </footer>
 
 <style lang='scss'>
-    @use '../styles/_colors.scss';
+    @use '../styles/variables' as *;
     footer {
-        background-color: colors.$theme-red-2;
+        background-color: $theme-red-2;
         width: 100%;
         padding: 8px 0;
     }
@@ -32,7 +32,7 @@ import { Icon } from 'astro-iconify'
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        color: colors.$theme-blue-1;
+        color: $theme-blue-1;
     }
 
     .socials {
@@ -64,22 +64,22 @@ import { Icon } from 'astro-iconify'
     }
 
     footer[data-theme='light'] {
-        background-color: colors.$theme-blue-2;
+        background-color: $theme-blue-2;
         .footer {
-            color: colors.$theme-red-3;
+            color: $theme-red-3;
         }
         a, a:visited {
-            color: colors.$bg-tertiary-light
+            color: $bg-tertiary-light
         }
     }
     footer[data-theme='dark'] {
-        background-color: colors.$theme-red-2;
+        background-color: $theme-red-2;
         transition: .3s ease-in-out;
         .footer {
-            color: colors.$theme-blue-1;
+            color: $theme-blue-1;
         }
         a, a:visited {
-            color: colors.$bg-tertiary-light
+            color: $bg-tertiary-light
         }
     }
 

@@ -29,9 +29,9 @@ const { title, subtitle='Ask why later...'} = Astro.props
 </header>
 
 <style lang='scss'>
-@use '../styles/_colors';
+@use '../styles/variables' as *;
     header {
-        background-color: colors.$theme-red-2;
+        background-color: $theme-red-2;
         width: 100%;
         padding-bottom: 8px;
         .container {
@@ -56,7 +56,7 @@ const { title, subtitle='Ask why later...'} = Astro.props
         padding: 32px 0;
         flex-direction: column;
         text-align: left;
-        color: colors.$theme-blue-1;
+        color: $theme-blue-1;
     }
     img{
     width: 100px;
@@ -77,30 +77,30 @@ const { title, subtitle='Ask why later...'} = Astro.props
         text-decoration: none;
         text-transform: uppercase;
         font-size: x-large;
-        color: colors.$theme-blue-1;
+        color: $theme-blue-1;
         &:hover {
             opacity: .65;
             transition: .5s ease-in-out;
         }
     }
     header[data-theme="light"] {
-            background-color: colors.$theme-blue-2;
+            background-color: $theme-blue-2;
             
         .title-container {
-        color: colors.$theme-red-2;
+        color: $theme-red-2;
         }
         a, a:visited{
-        color: colors.$theme-red-2;
+        color: $theme-red-2;
 	    }
     }
     header[data-theme="dark"] {
-            background-color: colors.$theme-red-2;
+            background-color: $theme-red-2;
             transition: .3s ease-in-out;
         .title-container {
-        color: colors.$theme-blue-1;
+        color: $theme-blue-1;
         }
         a, a:visited{
-        color: colors.$theme-blue-1;
+        color: $theme-blue-1;
 	    }
     }
 

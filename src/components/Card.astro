@@ -26,14 +26,14 @@ const { href, title, body, author, date, subtitle } = Astro.props;
 	</a>
 </li>
 <style lang='scss'>
-	@use '../styles/_colors.scss';
+	@use '../styles/variables' as *;
 
 	.link-card {
 		list-style: none;
 		display: flex;
 		/* padding: 8px; */
-		background-color: colors.$bg-secondary-dark;
-		color: colors.$bg-secondary-light;
+		background-color: $bg-secondary-dark;
+		color: $bg-secondary-light;
 		opacity: .7;
 		background-image: none;
 		background-size: 100%;
@@ -47,7 +47,7 @@ const { href, title, body, author, date, subtitle } = Astro.props;
 		text-decoration: none;
 		line-height: 1.4;
 		padding: calc(1.5rem - 1px);
-		color: colors.$bg-secondary-light;
+		color: $bg-secondary-light;
 		opacity: 0.9;
 	}
 	

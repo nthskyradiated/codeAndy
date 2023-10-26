@@ -2,10 +2,10 @@
 import { getCollection } from "astro:content";
 import BlogLayout from "../../layouts/BlogLayout.astro";
 import RandomEmoji from "../../components/RandomEmoji.astro"
-import '../../styles/styles.scss'
+import '../../styles/style.scss'
 const allPosts = await getCollection("blog");
 const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())];
-const pageTitle = "Tag Index";
+const pageTitle = "Debug the Mind | Tag Index";
 ---
 <BlogLayout title={pageTitle}>
     <h1> Sorted By Tags</h1>
@@ -17,7 +17,7 @@ const pageTitle = "Tag Index";
 </BlogLayout>
 
   <style lang='scss'>
-    @use '../../styles/_colors.scss';
+    @use '../../styles/variables' as *;
         li {
           list-style: none;
           text-align: left;
@@ -26,30 +26,30 @@ const pageTitle = "Tag Index";
     
       a, a:visited{
         text-decoration: none;
-		    color: colors.$bg-secondary-light;
+		    color: $bg-secondary-light;
         font-size: large;
         &:hover {
             opacity: .65;
         }
         }
         h1 {
-        color: colors.$bg-secondary-light;
+        color: $bg-secondary-light;
         line-height: 2.5rem;
         padding-bottom: 32px;
         }
 
         html[data-theme='light'] h1{
-         color: colors.$bg-secondary-dark;
+         color: $bg-secondary-dark;
         
         } 
         a[data-theme='light'], a:visited[data-theme-='light'] {
-          color: colors.$bg-secondary-dark;
+          color: $bg-secondary-dark;
          }
         html[data-theme='dark'] h1{
-         color: colors.$bg-secondary-light;
+         color: $bg-secondary-light;
         
         } 
         a[data-theme='dark'], a:visited[data-theme-='dark'] {
-          color: colors.$bg-secondary-light;
+          color: $bg-secondary-light;
          }
   </style>
