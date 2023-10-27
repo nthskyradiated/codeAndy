@@ -13,6 +13,9 @@ html {
     background: $secondary-dark;
     color: $secondary-light;
     transition: .3s ease-in-out;
+    path {
+        stroke-opacity: .4;
+    }
 
 
 }
