@@ -5,6 +5,7 @@ import Hero from '../components/Hero.astro';
 import Home from '../components/SVGComponents/Home.astro';
 const quote = await fetch('https://api.quotable.io/quotes/random')
 			.then(res => res.json())
+			export const prerender = false;
 ---
 
 <Layout title="Debug the Mind | Home">
