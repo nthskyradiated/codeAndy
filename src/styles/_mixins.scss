@@ -13,8 +13,21 @@
     color: transparent;
   }
 
-  @mixin linear-gradient{
-    background: linear-gradient($direction, rgba($theme-color-6, .7), $theme-color-5, rgba($theme-color-4, .7))
+@mixin linear-gradient($direction, $colors...){
+  background: linear-gradient($direction, $colors)
+}
+
+@mixin hover-light($a-color, $outline-color...){
+
+    a:hover {
+      color: $a-color;
+      opacity: .9;
+      transition: .3s ease-in-out;
+      text-shadow: 0 0 .5px $outline-color,
+      0 0 .5em $outline-color,
+      0 0 .5em $outline-color,
+      1px 1px .5em $outline-color,
+    }
   }
 
-    
+  

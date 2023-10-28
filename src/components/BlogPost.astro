@@ -2,12 +2,13 @@
 const { title, url } = Astro.props
 import RandomEmoji from "./RandomEmoji.astro"
 ---
-<li ><a data-theme='' href={url}>{title}</a>
+<li data-theme=""><a href={url}>{title}</a>
     <RandomEmoji />
 </li>
 
 <style lang='scss'>
     @use '../styles/variables' as *;  
+    @use '../styles/mixins' as *;  
     li {
           list-style: none;
           text-align: left;
@@ -23,10 +24,14 @@ import RandomEmoji from "./RandomEmoji.astro"
             }
     }
 
-    a[data-theme='light'], a:visited[data-theme='light'] {
-        color: $secondary-dark;
+    li[data-theme='light'] {
+        a, a:visited{
+        text-decoration: none;
+		color: $theme-blue-1;
+        font-size: large;}
+        @include hover-light($secondary-light, $theme-blue-2)
     }
-    a[data-theme='dark'], a:visited[data-theme='dark'] {
-        color: $secondary-light;
+    li[data-theme='dark'] {
+        @include hover-light($secondary-light, $theme-blue-3,)
     }
   </style>

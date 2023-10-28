@@ -21,10 +21,11 @@ const {sideTitle} = Astro.props
     </div>
 <style lang='scss'>
 @use '../styles/variables' as *;
+@use '../styles/mixins' as *;
     aside {
         
         width: 25%;
-        background-color: $theme-red-1;
+        // background-color: $theme-red-1;
         color: $secondary-light;
     }
     .container {
@@ -50,21 +51,31 @@ const {sideTitle} = Astro.props
         a, a:visited{
             text-decoration: none;
             font-size: large;
-            color: $secondary-light;;
+            color: $secondary-light;
+            &:hover {
+        color: $theme-blue-3;
+        opacity: .9;
+        transition: .1s ease-in-out;
+        }
+        }
+
     
-        }
-        &:hover {
-        opacity: .5;
-        transition: .4s ease-in-out;
-        }
     }
     aside[data-theme='light'] {
-        background-color: $theme-blue-1;
-
+        // background-color: $theme-blue-1;
+        color: $theme-blue-2;
+        a, a:visited{
+            text-decoration: none;
+            font-size: large;
+            color: $theme-blue-2;
+        }
+        @include hover-light($secondary-light, $theme-blue-2)
     }
     aside[data-theme='dark'] {
-        background-color: $theme-red-1;
-        transition: .3s ease-in-out;
+        a, a:visited{
+            font-size: large;
+        }
+        @include hover-light($secondary-light, $theme-blue-3,)
     }
 
     @media (max-width: 768px) {

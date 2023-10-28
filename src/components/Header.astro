@@ -5,17 +5,23 @@ interface Props {
 }
 import ThemeIcon from "./ThemeIcon.astro"
 const { title, subtitle='Ask why later...'} = Astro.props
+import Logo from "./SVGComponents/Logo.astro"
+import '@fontsource-variable/sora';
 ---
 
 <header data-theme="">
+    <div class="theme-toggle">
+        <ThemeIcon />
+    </div>
     <div class="container">
         <div class="brand-container">
             <div class="logo-container">
-                <ThemeIcon />
+                <Logo />
             </div>
             <div class="title-container">
                 <h1>{title}</h1>
                 <p>{subtitle}</p>
+                
             </div>
         </div>
             <nav>
@@ -30,18 +36,26 @@ const { title, subtitle='Ask why later...'} = Astro.props
 
 <style lang='scss'>
 @use '../styles/variables' as *;
+@use '../styles/mixins' as *;
     header {
-        background-color: $theme-red-2;
+        font-family: 'Sora Variable', 'Segoe UI', sans-serif;
+        // background-color: $theme-red-2;
         width: 100%;
         padding-bottom: 8px;
+        position: relative;
         .container {
             display: flex;
-            flex-direction: row;
+            flex-direction: row-reverse;
             justify-content: space-between;
             align-items: flex-end;
             margin: auto;
             width: 80%;
         }
+    }
+    .theme-toggle {
+        position: absolute;
+        left: 12px;
+        top: 32px;
     }
     .brand-container {
         display: flex;
@@ -56,13 +70,9 @@ const { title, subtitle='Ask why later...'} = Astro.props
         padding: 32px 0;
         flex-direction: column;
         text-align: left;
-        color: $theme-blue-1;
+        color: $theme-red-1;
     }
-    img{
-    width: 100px;
-    height: auto;
-    padding-top: 8px;
-    }
+
     ul{
         display: flex;
         flex-direction: row;
@@ -87,35 +97,43 @@ const { title, subtitle='Ask why later...'} = Astro.props
             background-color: $theme-blue-2;
             
         .title-container {
-        color: $theme-red-2;
+        color: $tertiary-light;
         }
         a, a:visited{
-        color: $theme-red-2;
+        color: $tertiary-light;
 	    }
     }
     header[data-theme="dark"] {
-            background-color: $theme-red-2;
             transition: .3s ease-in-out;
-        .title-container {
-        color: $theme-blue-1;
-        }
+            text-shadow: 0 0 5em $tertiary-light,
+                        0 0 10em $tertiary-light;
+
         a, a:visited{
-        color: $theme-blue-1;
+        color: $secondary-light;
 	    }
+        .title-container {
+        color:  $theme-blue-3;
+        }
+        @include hover-light($secondary-light, $theme-blue-3)
     }
 
     @media (max-width: 768px) {
+
         nav {
             display: none;
         }
     }
     @media (max-width: 540px) {
+        .container {
+            justify-content: center !important;
+            text-align: center;
+            margin: auto;
+            align-items: center;
+        }
         .brand-container {
-            transform: translateX(49%);
             display: flex;
             flex-direction: column-reverse;
             width: 50%;
-            align-items: left;
             .title-container {
                 text-align: center;
                 margin-bottom: -40px

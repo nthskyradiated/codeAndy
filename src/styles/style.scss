@@ -1,4 +1,5 @@
 @forward './mixins';
+@use './mixins';
 @use 'variables' as *;
 
 *,*::before, *::after {
@@ -20,7 +21,8 @@ html {
 
 }
 html[data-theme="light"] {
-background: $secondary-light;
+@include mixins.linear-gradient($direction, $accent-light);
+// background: $tertiary-light;
 color: $secondary-dark;
 transition: .3s ease-in-out;
 
@@ -49,7 +51,8 @@ transition: .3s ease-in-out;
 }
 
 html[data-theme="dark"] {
-background: $secondary-dark;
+    @include mixins.linear-gradient(-185deg, $accent-dark);
+    background-color: $secondary-dark;
 color: $secondary-light;
 transition: .3s ease-in-out;
     path.cls-1 {

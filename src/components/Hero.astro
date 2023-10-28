@@ -1,5 +1,6 @@
 ---
 import { fade, slide } from 'astro:transitions';
+import '@fontsource-variable/sora'
 interface Props {
     title: string
     body?: string
@@ -43,15 +44,21 @@ const noImg = 'noImg'
         left: 50%;
         transform: translate(-50%, -50%);
         align-items: center;
-        padding-bottom:24px;
+        padding-bottom: 24px;
+        font-family: 'Sora variable', 'Segoe UI';
         text-align: center;
-        color: $theme-green-1;
+        color: $theme-red-3;
         line-height: 2.4rem;
-        text-shadow: -.25px -.25px 0 $theme-green-2;
+        text-shadow: -1px -1px 2em $theme-blue-3,
+                     0 0 2em $theme-green-3;
     }
 
     h1 {
         font-size: 48px;
+    }
+    span {
+        // font-size: 16px;
+        font-style: italic;
     }
 
     @media (max-width: 768px) {

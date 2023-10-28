@@ -24,6 +24,7 @@
 
 <style lang='scss'>
     @use '../styles/variables' as *;
+    @use '../styles/mixins' as *;
 .hamburger {
     position: fixed;
     top: 40px;
@@ -119,10 +120,7 @@ a:not(.unstyled), a:visited{
         font-size: x-large;
         color: $secondary-light;
     }
-a:hover {
-    opacity: .5;
-    
-}
+@include hover-light($secondary-light, $theme-blue-3);
 small {
     padding-top: 24px;
     color: $secondary-light;

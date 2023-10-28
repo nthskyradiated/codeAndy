@@ -11,6 +11,7 @@ const { title, href } = Astro.props
 
 <style lang='scss'>
 @use '../styles/variables' as *;
+@use '../styles/mixins' as *;
 	.btn {
 		padding: 8px;
 		background-color: $primary-dark;
@@ -58,13 +59,9 @@ button[data-theme='dark'] {
     &:hover {
       background-color: $primary-dark;
       opacity: .75;
+      box-shadow: .25px 5px 5px $theme-green-3;
+    
     }
-  a {
-    color: $theme-green-3;
-    &:hover {
-      color: $theme-green-2;
-      transition: .2s ease-in-out;
-    }
+@include hover-light($secondary-light, $theme-green-3);
   }
-}
 </style>
