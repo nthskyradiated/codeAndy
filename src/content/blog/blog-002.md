@@ -26,7 +26,7 @@ Let's not forget nodemon:
 npm install -D nodemon
 ```
 \
-Let's go throgh some of them:\
+Let's go through some of them:\
 **express-graphql** - the middleware I plan on using for my queries and mutations.\
 **mongoose** - will handle our connection to MongoDB Atlas.\
 **morgan** - logs traffic on our backend.\
@@ -53,7 +53,7 @@ Since I will be using es-style module imports as well as deploying in Azure, so 
 
 ### 1. My index.js
 
-Let's begin by setting our entry point and importing all the modules we need:
+Let's begin by setting up our entry point and importing all the modules we need:
 ```bash
 import express from "express";
 import { graphqlHTTP } from "express-graphql";
