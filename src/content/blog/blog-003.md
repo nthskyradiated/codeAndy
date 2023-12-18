@@ -1,67 +1,138 @@
 ---
-isDraft: false
-title: Unleash the Power of Modern Web Development with Bun
-excerpt: The long wait is over Bun is here to make web development much easier!
-slug: modern-web-development-with-bun
-publishDate: 2023-09-28
-author: Jane Developer
-tags: [Bun, Javascript, Web Development, Front-end]
-sortOrder: 1
+isDraft: true
+title: Building Pump Factory's Gym App (Part 2)
+excerpt: "I continue my build by defining my models and outlining my schema."
+slug: building-pump-factorys-gym-app-part-2
+publishDate: 2023-11-03
+author: AndyP
+tags: [Web Development, NodeJS, JavaScript, GraphQL, JWT]
+sortOrder: 2
 ---
 
-# Unleash the Power of Modern Web Development with Bun
+# Building Pump Factory's Gym Application (Part 2)
 
-In the ever-evolving world of web development, staying up-to-date with the latest tools and libraries is crucial. Enter **Bun**—a cutting-edge JavaScript library that's taking the web development community by storm. In this article, we'll explore what makes Bun so special and why it's worth your attention.
+This is a continuation of the Pump Factory App build process. Here, we take a closer look at our Mongoose models as well as our GraphQL schema...
 
-## What is Bun?
+<br/>
+<br/>
 
-Bun is a modern JavaScript library designed to simplify and streamline web development. It's packed with features and tools that empower developers to build robust and efficient web applications effortlessly. Let's dive into what sets Bun apart from the rest.
+## Our Mongoose Models
 
-## Key Features of Bun
+We first draft how our initial models would look. We currently have two: the customer model (called *Client*) and our package model (called *Product*):
 
-### 1. **Blazing-Fast Development**
+```javascript
+// clientModel.js
+import mongoose from "mongoose";
 
-Bun is engineered for speed. With its lightning-fast development server and optimized build system, you'll experience shorter build times and quicker feedback during development. Say goodbye to sluggish development workflows.
+const ClientSchema = new mongoose.Schema({
+    name: { type: String },
+    email: { type: String },
+    phone: { type: String },
+    birthdate: { type: Date },
+    age: { type: Number },
+    membershipStatus: { type: String, enum: ["active", "inactive"] },
+    waiver: { type: Boolean },
+    productId: { type: mongoose.Schema.Types.ObjectId, ref: 'Product' }
+}, { timestamps: true });
 
-### 2. **ES Modules Support**
+export default mongoose.model('Client', ClientSchema);
 
-Bun embraces the native ES modules system, making it easy to organize and share code in a clean, modular fashion. This enables you to write more maintainable and scalable code for your projects.
+// productModel.js
+import mongoose from "mongoose";
 
-### 3. **Effortless Code Splitting**
+const ProductSchema = new mongoose.Schema({
+    name: { type: String },
+    description: { type: String },
+    price: { type: Number },
+}, { timestamps: true });
 
-Bun provides effortless code splitting, allowing you to load only the JavaScript your application needs when it's needed. This results in smaller initial page loads and improved overall performance.
-
-### 4. **Painless Configuration**
-
-Configuring your development environment can be a headache, but not with Bun. It offers a straightforward and flexible configuration system that lets you tailor your setup to suit your project's specific needs.
-
-### 5. **Rich Plugin Ecosystem**
-
-Bun boasts a thriving ecosystem of plugins that can enhance your development experience further. Whether you need to add internationalization, optimize images, or integrate with popular frameworks, there's likely a Bun plugin for it.
-
-## Getting Started with Bun
-
-Getting started with Bun is a breeze. You can install it via npm or yarn:
-
-```bash
-npm install bun
-# or
-yarn add bun
+export default mongoose.model('Product', ProductSchema);
 ```
+The code above is pretty self-explanatory; the client data should have their names, emails, birthdates, etc. The same goes for the product data.
 
-After installation, you can initialize a new Bun project and start building your web application with ease:
+## GraphQL Schema
+We begin by defining our primary schema types here.
 
-`npx bun init my-bun-app`
+```javascript
 
-## Why Choose Bun?
-
-Bun's combination of speed, modern development practices, and a thriving community make it a compelling choice for modern web development projects. Whether you're building a single-page application, a static website, or a complex web application, Bun has the tools to streamline your workflow and boost your productivity.
-
-
-## Conclusion
-
-Web development is evolving at a rapid pace, and libraries like Bun are at the forefront of this evolution. With its focus on speed, modular code, and developer-friendly features, Bun is poised to become a staple in the toolkit of web developers worldwide.
-
-If you're looking to harness the power of modern web development and improve your productivity, give Bun a try on your next project. You won't be disappointed.
-
-Stay tuned for more updates on Bun and other exciting developments in the world of web development!
+import { GraphQLObjectType, GraphQLID, GraphQLEnumType, GraphQLString, GraphQLBoolean, GraphQLInt, GraphQLSchema, GraphQLList, GraphQLNonNull, Kind, GraphQLScalarType } from 'graphql';
+const DateType = new GraphQLScalarType({
+    name: 'Date',
+    description: 'Custom date scalar type',
+    parseValue(value) {
+        if (typeof value === 'number') {
+            return new Date(value)}
+        throw new Error('GraphQL Date Scalar parser expected a `number`')},
+    serialize(value) {
+        if (value instanceof Date) {
+            const year = value.getFullYear();
+            const month = String(value.getMonth() + 1).padStart(2, '0'); // Month is zero-based, so add 1 and pad with leading zero
+            const day = String(value.getDate()).padStart(2, '0');
+            return `${year}-${month}-${day}`;
+        }
+        throw new Error('Invalid Date value');
+    },
+    parseLiteral(ast) {
+        if (ast.kind === Kind.STRING) {
+            const dateParts = ast.value.split('-');
+            if (dateParts.length === 3) {
+                const year = dateParts[2];
+                const month = dateParts[0];
+                const day = dateParts[1];
+                return `${year}-${month}-${day}`;
+            }
+        }
+        throw new Error('Invalid Date literal');
+    },
+});
+const MembershipStatusType = new GraphQLEnumType({
+    name: 'MembershipStatus',
+    values: {
+        active: { value: 'active' },
+        inactive: { value: 'inactive' }
+    },
+    defaultValue: 'inactive'
+});
+const ProductType = new GraphQLObjectType({
+    name: 'Product',
+    fields: () => ({
+        id: { type: GraphQLID},
+        name: { type: GraphQLString},
+        description: { type: GraphQLString},
+        price: { type: GraphQLInt}
+    })
+})
+const ClientType = new GraphQLObjectType({
+    name: 'Client',
+    fields: () => ({
+        id: { type: GraphQLID},
+        name: { type: GraphQLString},
+        email: { type: GraphQLString},
+        phone: { type: GraphQLString},
+        birthdate: { type: DateType},
+        age: {type: GraphQLInt},
+        waiver: { type: GraphQLBoolean},
+        membershipStatus: {
+            type: MembershipStatusType, 
+            resolve: async (parent) => {
+                const product = await Product.findById(parent.productId);
+                if (product) {
+                    return 'active';
+                }
+                return 'inactive';
+            },
+        },
+        product: {
+            type: ProductType,
+            resolve(parent, args) {
+                return Product.findById(parent.productId)
+            }
+}})
+})
+```
+<br/>
+It's worth noting that Date type is a custom scalar type since it doesn't fall under the default types like String or Integer. We also reference our Product type in our client type.
+<br/>
+In part 3, we will define our queries and mutations.
+<br/>
+See you, friends!
