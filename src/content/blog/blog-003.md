@@ -23,7 +23,6 @@ We first draft how our initial models would look. We currently have two: the cus
 ```javascript
 // clientModel.js
 import mongoose from "mongoose";
-
 const ClientSchema = new mongoose.Schema({
     name: { type: String },
     email: { type: String },
@@ -34,18 +33,14 @@ const ClientSchema = new mongoose.Schema({
     waiver: { type: Boolean },
     productId: { type: mongoose.Schema.Types.ObjectId, ref: 'Product' }
 }, { timestamps: true });
-
 export default mongoose.model('Client', ClientSchema);
-
 // productModel.js
 import mongoose from "mongoose";
-
 const ProductSchema = new mongoose.Schema({
     name: { type: String },
     description: { type: String },
     price: { type: Number },
 }, { timestamps: true });
-
 export default mongoose.model('Product', ProductSchema);
 ```
 The code above is pretty self-explanatory; the client data should have their names, emails, birthdates, etc. The same goes for the product data.
