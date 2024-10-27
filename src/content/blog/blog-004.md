@@ -1,123 +1,103 @@
 ---
 isDraft: false
-title: "Exploring API Integrations in OpenAI and ChatGPT"
-excerpt: "Discover the power of API integrations with OpenAI and ChatGPT for enhanced productivity and creativity."
-slug: exploring-api-integrations-in-openai-and-chatgpt
-publishDate: 2023-09-29
-author: ChatGPT
-tags: [ OpenAI, ChatGPT, API Integrations, Productivity, Creativity]
+title: "Deploying Mongodb Statefulsets in Kubernetes"
+excerpt: "The simplest way I deploy a sandbox NoSQL statefulset for our developers."
+slug: deploying-mongodb-stateful-sets-in-kubernetes
+publishDate: 2023-12-29
+author: AndyP
+tags: [ Kubernetes, Mongodb, NoSQL, Deployment]
 sortOrder: 4
 ---
+# Deploying Mongodb pods
+I use several different approaches to deploy mongodb pods in development. Most of them utilizes shared nfs storage folders for volume mounts and one of which is for the storage of key-file for pod authentication.
 
-# Exploring API Integrations in OpenAI and ChatGPT
+## 1. Create a mongodb user account
+```bash
+sudo useradd mongodb
 
-API integrations have become an essential component of modern software applications, and OpenAI's ChatGPT is no exception. By integrating ChatGPT's API, users can unlock a world of possibilities for enhancing productivity, creativity, and problem-solving. In this post, we'll delve into the different API integrations available and provide examples of how they can be used.
-
-## 1. **Text Generation**
-
-**Use Case:** Content Creation
-
-With ChatGPT's API, you can effortlessly generate high-quality text for various purposes. Whether you need blog posts, product descriptions, or creative writing, ChatGPT can assist. For example:
-
-```python
-import openai
-
-response = openai.Completion.create(
-  engine="davinci",
-  prompt="Write a 500-word article about renewable energy sources.",
-  max_tokens=500
-)
-
-generated_text = response.choices[0].text
-
-
-2. Language Translation
-
-Use Case: Multilingual Communication
-
-The API allows you to build language translation applications. Translate text from one language to another with ease:
-
-```python
-import openai
-response = openai.Completion.create(
-  engine="text-davinci-002",
-  prompt="Translate the following English text to French: 'Hello, world!'",
-  max_tokens=50
-)
-
-translated_text = response.choices[0].text
+# take note of user's uid to used for mounting permissions in the yaml config
+cat /etc/passwd | grep mongodb
+```
+```bash
+# in this case: 1001
+mongodb:x:1001:1001::/home/mongodb:/bin/sh
 ```
 
-## 3. **Code Generation**
+## 2. Create Directories to Share via NFS
+Create directories needed that will be shared with the worker nodes.
 
-**Use Case:** Software Development
-
-Developers can leverage ChatGPT to generate code snippets in various programming languages. This can significantly speed up development tasks:
-
-```python
-import openai
-
-response = openai.Completion.create(
-  engine="davinci-codex",
-  prompt="Generate a Python function to calculate the factorial of a number.",
-  max_tokens=100
-)
-
-generated_code = response.choices[0].text
+```bash
+sudo mkdir -p /srv/nfs/kubedata /srv/nfs/mongo-keyfile
+sudo chown mongodb:mongodb /srv/nfs/kubedata /srv/nfs/mongo-keyfile
 ```
 
-## 4. **Chatbots and Customer Support**
+## 3. Configuring the NFS share
+Make sure NFS service is installed.
+  
+```bash
+sudo apt update
+sudo apt install nfs-kernel-server
+```
+Configure the NFS exports.
+```bash
+sudo nano /etc/exports
 
-**Use Case:** Customer Engagement
+# Add the entries below:
+/srv/nfs/mongo-keyfile *(rw,fsid=1,sync,no_subtree_check,anonuid=1001,anongid=1001)
 
-Integrate ChatGPT into your website or app to provide instant responses to customer queries. Example with Python and Flask:
-
-```python
-from flask import Flask, request, jsonify
-import openai
-
-app = Flask(__name__)
-
-@app.route('/chat', methods=['POST'])
-def chat():
-    user_message = request.json['user_message']
-    response = openai.Completion.create(
-        engine="davinci",
-        prompt=f"User: {user_message}\nChatGPT:"
-    )
-    chat_response = response.choices[0].text
-    return jsonify({'response': chat_response})
-
-if __name__ == '__main__':
-    app.run()
+/srv/nfs/kubedata node01(rw,sync,no_subtree_check,all_squash,anonuid=1001,anongid=1001) node02(rw,sync,no_subtree_check,all_squash,anonuid=1001,anongid=1001)
 ```
 
-## 5. **Data Analysis and Reporting**
+Export the shares and run and enable the NFS service.
+```bash
+sudo exportfs -ra
+sudo systemctl start nfs-kernel-server
+sudo systemctl enable nfs-kernel-server
+```
+## 4. Configure the shares on the worker nodes
+Make sure the NFS client service is installed.
+```bash
+sudo apt update
+sudo apt install nfs-common
+```
+Create a mount point and mount the shared folder.
+```bash
+sudo mkdir -p /mnt/nfs/kubedata
+sudo mount <your-nfs-server-ip>:/srv/nfs/kubedata /mnt/nfs/kubedata
 
-**Use Case:** Data Science
+#verify the mount:
+df -h
+```
+Make the mount persistent by adding entry to fstab.
+```bash
+sudo nano /etc/fstab
 
-Integrate ChatGPT into your data analysis workflows to generate insightful reports and summaries from your data:
+# add the entry below
+control-plane-ip:/srv/nfs/kubedata /mnt/nfs/kubedata nfs defaults 0 0
+```
+## 5. Generate the keyfile needed for pod authentication
+```bash
+# I'm naming mine mkey
 
-```python
-import openai
+openssl rand -base64 756 > mkey
+chmod 400 mkey
+sudo chown mongodb:mongodb mkey
 
-response = openai.Completion.create(
-  engine="davinci",
-  prompt="Summarize the key insights from the sales data for Q3 2023."
-)
+# make sure to move it to /srv/nfs/mongo-keyfile
+```
+## 6. The rest of the configurations is detailed in the deployment yaml files
+refer to the deployment yaml files for more details.
 
-data_summary = response.choices[0].text
+## 7. Initiate the replicaset
+if running a replicaset, you need to initiate the replication process right after the first pod is created since mongodb requires initialization (```rs.initiate()```) as it is an administrative task that sets up the internal replication structure. It requires MongoDB to first ensure all nodes are ready and then one of the nodes (typically the first replica) is designated as primary.
+
+While Kubernetes can spin up multiple replicas, MongoDB itself needs to be instructed to form a replica set. The methods above help automate that process within a containerized setup..
+
+```bash
+kubectl exec -ti <pod name> -- mongosh -u <username> -p <password>
+
+# run this inside the container instance
+rs.initiate()
 ```
 
-API integrations with OpenAI and ChatGPT are versatile, empowering users across various domains. Whether you're a content creator, developer, or data scientist, these integrations can streamline tasks and boost your productivity and creativity.
-
-Remember to explore OpenAI's extensive documentation for comprehensive guidance on using these API integrations effectively. Start integrating ChatGPT into your applications today and unleash the full potential of AI-powered assistance.
-
-In conclusion, API integrations with OpenAI and ChatGPT are transforming how we work and create, making complex tasks simpler and unleashing creativity in unprecedented ways.
-
-[Explore OpenAI's API Documentation](https://beta.openai.com/docs/)
-
-Happy integrating!
-```
-
-This Markdown post provides an overview of API integrations in OpenAI and ChatGPT, showcasing their versatility and potential use cases with code examples where applicable.
+I don't like the manual approach so I deploy my replicaset with a sidecar.

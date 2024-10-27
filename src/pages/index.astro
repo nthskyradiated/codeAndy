@@ -3,12 +3,11 @@ import Layout from '../layouts/Layout.astro';
 import Sidebar from '../components/Sidebar.astro';
 import Hero from '../components/Hero.astro';
 import Home from '../components/SVGComponents/Home.astro';
-const quote = await fetch('https://api.quotable.io/quotes/random')
-			.then(res => res.json())
-			export const prerender = false;
+import Quoter from '../components/Quoter.astro';
+export const prerender = false;
 ---
 
-<Layout title="Debug the Mind | Home">
+<Layout title="Debug the mind | Home">
 	<div class="container">
 		<main>
 			<Hero title="~" body="...is where you (re)build it..." hasImage={true}>
@@ -17,14 +16,11 @@ const quote = await fetch('https://api.quotable.io/quotes/random')
 			<hr>
 			<section>
 				<h1> Home ~/</h1>
-				<p>Hello! I'm Andy! I build stuff, I break stuff, I play stuff, and I climb stuff!
-					
-					This website is where I journal things I am mostly interested about (and I have lots of stuff I am interested about! 🤪). I explore thoughts, break down concepts, deconstruct ideas, and put them back together into bite-sized nuggets of wisdom! Or just write whatever I feel like writing.</p>
-				<p>Please check out the About section of the site for more info about me.</p>
+				<p>Hello! I'm Andy! 
+				I made this website to post content I'm interested about like web development, open-source, and devops. Also to explore thoughts, break down concepts, deconstruct ideas, and put them back together into something more interesting! Or just write whatever I feel like writing.</p>
 			</section>
 
-			{quote.map( (q:any) => <p style="font-style:italic">&#10077; {q.content} &#10080;</p>
-			<small >~{q.author}</small>)}
+			<Quoter />
 		</main>
 		<Sidebar sideTitle={'Tags On Posts'} />
 	</div>

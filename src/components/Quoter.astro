@@ -1,0 +1,11 @@
+---
+import quotes from '../lib/quotes.json';
+
+// Pick a random quote from the imported data
+const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+---
+
+<div class="quote-container">
+    <p style="font-style: italic;">&#10077; {randomQuote.text} &#10080;</p>
+    <small>~ {randomQuote.author}</small>
+</div>

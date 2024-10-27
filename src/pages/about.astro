@@ -4,22 +4,22 @@ import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
 import Card from '../components/Card.astro';
 import Climber from '../components/SVGComponents/Climber.astro';
-import pic from '../images/Andy.jpg';
+import pic from '../images/me.jpg';
 
-const description: string = "My interests include open-source, full-stack web development, and DevOps( basically breaking down stuff and piecing 2 and 2 together 🤣). I'm also into art and music, fitness, being outdoors and rock climbing! 🧗 I'm also a co-owner of a bouldering gym in the Philippines called Pump Factory."
+const description: string = "My interests include devops, open-source, and web development. I'm into art and music, being outdoors and rock climbing! 🧗 Co-owner of a bouldering gym in the Philippines called The Pump Factory."
 
 ---
 
-<Layout title="Debug the Mind | About">
+<Layout title="Debug the mind | About">
 	<div class="container">
 		<main>
-			<Hero title="~$ whoami" body="a brief intro about me..." hasImage={true} >
+			<Hero title="~$ whoami" hasImage={true} >
 			<Climber />
 			</Hero>
 			<hr>
 			<div class="profile-wrapper">
-				<Image class="image" src={pic} alt="why so serious?!" />	
-				<Card title="Andy Pandaan" subtitle="Full Stack / Devops / Tech" body={description} href='https://andypandaan.info'/>
+				<Image class="image" src={pic} alt="my photo" />	
+				<Card title="Andy Pandaan" subtitle="Devops / Full-Stack / Tech" body={description} href='https://andypandaan.info'/>
 			</div>
 		</main>
 	</div>
