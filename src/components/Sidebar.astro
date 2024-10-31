@@ -11,11 +11,11 @@ interface Props {
 const {sideTitle} = Astro.props
 ---
 
-<aside data-theme="" transition:animate={fade({ duration: '0.7s' })}>
+<aside data-theme="">
     <div class="container">
         <h2>{sideTitle}</h2>
         <ul>
-            {tags.map((tag) => <li><a href={`/tag/${tag}`}>{tag}</a></li>)}
+            {tags.map((tag) => <li><a href={`/tag/${tag}`} data-astro-reload>{tag}</a></li>)}
             
         </ul>
         </aside>
