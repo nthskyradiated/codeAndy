@@ -11,7 +11,7 @@ interface Props {
 const {sideTitle} = Astro.props
 ---
 
-<aside data-theme="">
+<aside data-theme="" transition:animate={fade({ duration: '0.7s' })}>
     <div class="container">
         <h2>{sideTitle}</h2>
         <ul>
