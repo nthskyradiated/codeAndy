@@ -5,13 +5,14 @@ import Hero from '../components/Hero.astro';
 import Card from '../components/Card.astro';
 import Climber from '../components/SVGComponents/Climber.astro';
 import pic from '../images/me.jpg';
+import { fade } from 'astro:transitions';
 
 const description: string = "My interests include devops, open-source, and web development. I'm into art and music, being outdoors and rock climbing! 🧗 Co-owner of a bouldering gym in the Philippines called The Pump Factory."
 
 ---
 
 <Layout title="Debug the mind | About">
-	<div class="container">
+	<div class="container" transition:animate={fade({ duration: '0.7s' })}>
 		<main>
 			<Hero title="~$ whoami" hasImage={true} >
 			<Climber />

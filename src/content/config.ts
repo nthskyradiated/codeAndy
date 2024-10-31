@@ -1,6 +1,6 @@
 import { z, defineCollection } from 'astro:content';
 
-const blogCollection = defineCollection ({ 
+const postCollection = defineCollection ({ 
   type: 'content',
   schema: z.object({
       isDraft: z.boolean(),
@@ -21,5 +21,5 @@ const blogCollection = defineCollection ({
 // 3. Export a single `collections` object to register your collection(s)
 //    This key should match your collection directory name in "src/content"
 export const collections = {
-  'blog': blogCollection,
+  'posts': postCollection,
 };

@@ -4,8 +4,8 @@ import { getCollection, getEntry, getEntryBySlug } from "astro:content";
 
 // 1. Generate a new path for every collection entry
 export async function getStaticPaths() {
-  const blogEntries = await getCollection('blog');
-  return blogEntries.map(entry => ({
+  const entries = await getCollection('posts');
+  return entries.map(entry => ({
     params: { slug: entry.slug }, props: { entry },
   }));
 }

@@ -9,23 +9,23 @@ import Card from '../../components/Card.astro';
 import type { GetStaticPaths } from "astro";
 //get the collection and paginate
 export const getStaticPaths = (async ({ paginate }) => {
-  const blogEntries = await getCollection('blog');
-  return paginate(blogEntries, {pageSize: 4})
+  const entries = await getCollection('posts');
+  return paginate(entries, {pageSize: 8})
 }) satisfies GetStaticPaths
 
 const { page } = Astro.props;
 ---
-<Layout title="Debug the Mind | Journals">
+<Layout title="Debug the Mind | Posts">
 	<div class="container">
 		<main>
-			<Hero title="~$ ls -al" body="...is where you (re)code it..." hasImage={true}>
+			<Hero title="~$ ls -al" body={''} hasImage={true}>
 			<Laptop />
 			</Hero>
 			<hr>
 			<div class="section-wrapper-2">
 				<section class="blog-section">
 					{page.data.map((post:any) =>  (
-						<Card title={post.data.title} body={post.data.excerpt} author={post.data.author} date={post.data.publishDate.toDateString()} href={`/blog/${post.slug}`}/>
+						<Card title={post.data.title} body={post.data.excerpt} author={post.data.author} date={post.data.publishDate.toDateString()} href={`/posts/${post.slug}`}/>
 						)
 					)}
 				</section>
