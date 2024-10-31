@@ -4,9 +4,10 @@ interface Props {
     subtitle?: string
 }
 import ThemeIcon from "./ThemeIcon.astro"
-const { title, subtitle='Ask why later...'} = Astro.props
+const { title, subtitle='tech and whatnot...'} = Astro.props
 import Logo from "./SVGComponents/Logo.astro"
 import '@fontsource-variable/sora';
+import { fade } from "astro:transitions"
 ---
 
 <header data-theme="">
@@ -18,7 +19,7 @@ import '@fontsource-variable/sora';
             <div class="logo-container">
                 <Logo />
             </div>
-            <div class="title-container">
+            <div class="title-container" transition:animate={fade({ duration: '0.7s' })}>
                 <h1>{title}</h1>
                 <p>{subtitle}</p>
                 
@@ -28,7 +29,7 @@ import '@fontsource-variable/sora';
                 <ul>
                     <li><a href="/">Home</a></li>
                     <li><a href="/about">About</a></li>
-                    <li><a href="/posts/1">Posts</a></li>
+                    <li><a href="/posts/1" >Posts</a></li>
                 </ul>
             </nav>
     </div>

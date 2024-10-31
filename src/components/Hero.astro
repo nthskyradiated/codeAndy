@@ -1,5 +1,5 @@
 ---
-import { fade, slide } from 'astro:transitions';
+import { fade } from 'astro:transitions';
 import '@fontsource-variable/sora'
 interface Props {
     title: string
@@ -10,7 +10,7 @@ const { title, body, hasImage = false } = Astro.props
 const noImg = 'noImg'
 ---
 
-<section class="section-wrapper" transition:animate={slide({ duration: '0.7s' })}>
+<section class="section-wrapper" transition:animate={fade({ duration: '0.7s' })}>
     <div class= {!hasImage as string && noImg } >
         <div class="image-wrapper">
             {hasImage && <slot />}
