@@ -1,7 +1,7 @@
 ---
 import Button from "../components/Button.astro"
-import { getCollection, getEntry, getEntryBySlug } from "astro:content";
-const blogPosts = await getCollection('blog')
+import { getCollection, getEntry } from "astro:content";
+const blogPosts = await getCollection('posts')
 import laptop from '../images/laptop.svg';
 import Hero from "../components/Hero.astro";
 import Layout from '../layouts/Layout.astro';
