@@ -15,11 +15,11 @@
         
     <nav id="mobile-menu" class="mobile-main-menu" aria-label="mobile" transition:persist>
         <ul>
-            <li><a href="/" class="">Home</a></li>
-            <li><a href="/about" class="">About</a></li>
-            <li><a href="/posts/1" class="">Posts</a></li>
+            <li><a href="/" class="" data-astro-reload>Home</a></li>
+            <li><a href="/about" class="" data-astro-reload>About</a></li>
+            <li><a href="/posts/1" class="" data-astro-reload>Posts</a></li>
         </ul>
-        <small><a href="/tag" class="unstyled">browse by tag</a></small>
+        <small><a href="/tag" class="unstyled" data-astro-reload>browse by tag</a></small>
     </nav>
 
 <style lang='scss'>
@@ -136,3 +136,13 @@ small {
 }
 
 </style>
+
+<!-- <script>
+import { navigate } from 'astro:transitions/client';
+
+// Navigate to the selected option automatically.
+document.querySelector(a).onchange = (event) => {
+  let href = event.target.value;
+  navigate(href);
+};
+</script> -->
