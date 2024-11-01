@@ -75,14 +75,14 @@ import '../styles/_themeToggle.scss'
     document.addEventListener("astro:after-swap", () => setTheme(currentTheme));
     // If the current theme is dark, check the theme toggle
     if (currentTheme === "dark") {
-      themeToggle!.checked = true;
+      (themeToggle as HTMLInputElement).checked = true;
     }
   }
   // Function that will switch the theme based on the if the theme toggle is checked or not
   function switchTheme(e:Event) {
 
     
-    if (e.target!.checked ) {
+    if ((e.target as HTMLInputElement).checked ) {
 
       document.documentElement.setAttribute("data-theme", "dark");
       setTheme('dark');

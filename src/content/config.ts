@@ -15,11 +15,27 @@ const postsCollection = defineCollection ({
       tags: z.array(z.string()),
       publishDate: z.date(),
     }),
-    // You can also transform a date string (e.g. "2022-07-08") to a Date object
-    // publishDate: z.string().transform((str) => new Date(str)),
+
 })
-// 3. Export a single `collections` object to register your collection(s)
-//    This key should match your collection directory name in "src/content"
+
 export const collections = {
   'posts': postsCollection,
 };
+
+export interface Post {
+  data: {
+    isDraft: boolean;
+    title: string;
+    excerpt: string;
+    image?: { src: string; alt: string };
+    sortOrder: number;
+    publishDate: Date;
+    author: string;
+    tags: string[];
+  };
+}
+
+export interface Entry {
+  slug: string;
+  render: () => Promise<{ Content: any }>;
+}

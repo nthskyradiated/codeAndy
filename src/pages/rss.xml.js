@@ -1,4 +1,5 @@
 import rss, {pagesGlobToRssItems} from '@astrojs/rss';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export async function GET(context) {
   return rss({
     title: 'Debug The Mind',

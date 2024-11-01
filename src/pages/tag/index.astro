@@ -3,8 +3,9 @@ import { getCollection } from "astro:content";
 import BlogLayout from "../../layouts/BlogLayout.astro";
 import RandomEmoji from "../../components/RandomEmoji.astro"
 import '../../styles/style.scss'
+import type { Post } from "../../content/config";
 const allPosts = await getCollection("posts");
-const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())];
+const tags = [...new Set(allPosts.map((post: Post) => post.data.tags).flat())];
 const pageTitle = "Debug the Mind | Tag Index";
 ---
 <BlogLayout title={pageTitle}>

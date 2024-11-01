@@ -1,8 +1,9 @@
 ---
 import { getCollection } from 'astro:content';
 import { fade } from 'astro:transitions';
+import type { Post } from '../content/config';
   const allPosts = await getCollection("posts");
-  const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())];
+  const tags = [...new Set(allPosts.map((post: Post ) => post.data.tags).flat())];
 
 interface Props {
     sideTitle: string
